@@ -54,14 +54,22 @@
 		76D4394E2024580B00844DAE /* chemistry */ = {
 			isa = PBXGroup;
 			children = (
-				76D4394F2024580B00844DAE /* AppDelegate.swift */,
+				76D4396120245A9B00844DAE /* Supporting Files */,
 				76D439512024580B00844DAE /* ViewController.swift */,
 				76D439532024580B00844DAE /* Main.storyboard */,
-				76D439562024580B00844DAE /* Assets.xcassets */,
-				76D439582024580B00844DAE /* LaunchScreen.storyboard */,
 				76D4395B2024580B00844DAE /* Info.plist */,
 			);
 			path = chemistry;
+			sourceTree = "<group>";
+		};
+		76D4396120245A9B00844DAE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				76D4394F2024580B00844DAE /* AppDelegate.swift */,
+				76D439562024580B00844DAE /* Assets.xcassets */,
+				76D439582024580B00844DAE /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,7 +288,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hogwards.chemistry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -294,7 +302,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hogwards.chemistry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
