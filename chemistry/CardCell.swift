@@ -10,8 +10,14 @@ import UIKit
 
 class CardCell: UICollectionViewCell {
     
-    @IBOutlet weak var cardImage: UIImageView!
+    @IBOutlet public var cardImage: UIImageView!
     
-    // TODO: Gesture and Animation
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    
+    
+    
     
 }
