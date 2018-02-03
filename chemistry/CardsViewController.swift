@@ -49,14 +49,15 @@ extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 0, bottom: 30, right: 0)
+        return UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CardCell
+        let card = DataManager.shared.helium
         
-        cell.backgroundColor = .blue
+        cell.cardImage.image = card.backImage
         
         return cell
     }

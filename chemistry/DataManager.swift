@@ -17,10 +17,14 @@ class DataManager {
     
     // - Cointainer of CardModel instances
     
-    var array : [CardModel] = []
-
+    var storage : [CardModel] = []
+    var filePath: String!
+    
+    let helium = CardModel(element: "Helium", image: #imageLiteral(resourceName: "Helium"))
+    
     func loadData() {
-        
+        filePath = folderDocuments() + "/cards.plist"
+        storage = NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as! [CardModel]
     }
     
     func save() {
