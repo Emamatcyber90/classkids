@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		494C6D082025ECA90047E61C /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C6D072025ECA90047E61C /* CardModel.swift */; };
+		494C6D0A2025F0160047E61C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C6D092025F0160047E61C /* DataManager.swift */; };
 		76D439502024580B00844DAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D4394F2024580B00844DAE /* AppDelegate.swift */; };
 		76D439552024580B00844DAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D439532024580B00844DAE /* Main.storyboard */; };
 		76D439572024580B00844DAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76D439562024580B00844DAE /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		494C6D072025ECA90047E61C /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardModel.swift; path = ../CardModel.swift; sourceTree = "<group>"; };
+		494C6D092025F0160047E61C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		76D4394C2024580B00844DAE /* chemistry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chemistry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D4394F2024580B00844DAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76D439542024580B00844DAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,8 +62,10 @@
 			children = (
 				76D4396120245A9B00844DAE /* Supporting Files */,
 				76D439532024580B00844DAE /* Main.storyboard */,
+				494C6D072025ECA90047E61C /* CardModel.swift */,
 				76D439802024707C00844DAE /* CardCell.swift */,
 				76D43974202461AA00844DAE /* CardsViewController.swift */,
+				494C6D092025F0160047E61C /* DataManager.swift */,
 				76D4395B2024580B00844DAE /* Info.plist */,
 			);
 			path = chemistry;
@@ -148,6 +154,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				76D43975202461AA00844DAE /* CardsViewController.swift in Sources */,
+				494C6D0A2025F0160047E61C /* DataManager.swift in Sources */,
+				494C6D082025ECA90047E61C /* CardModel.swift in Sources */,
 				76D439502024580B00844DAE /* AppDelegate.swift in Sources */,
 				76D439812024707C00844DAE /* CardCell.swift in Sources */,
 			);
