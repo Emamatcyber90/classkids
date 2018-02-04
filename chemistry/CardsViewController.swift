@@ -23,13 +23,33 @@ class CardsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        levelCreator()
+   
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+//    - levelCreator create the level with 8 random matches (16 cards) and remove them from the storage
     
+    func levelCreator () {
+        
+        DataManager.shared.initialize()
+        print(DataManager.shared.storage)
+        print("------------------------")
+        var level: [CardModel] = []
+        
+        for i in 0...7 {
+            let myIndex = DataManager.shared.storage.randomItem()
+            level.append(DataManager.shared.storage[myIndex])
+            DataManager.shared.storage.remove(at: myIndex)
+            print(level[i].element)
+            print(level[i].image)
+        }
+    }
     
 }
 
@@ -49,7 +69,7 @@ extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+        return UIEdgeInsets(top: 20, left: 250, bottom: 20, right: 0)
         
     }
     
@@ -77,4 +97,17 @@ extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     
 }
+
+
+
+
+//   - this function return a random item from the storage
+
+extension Array {
+    func randomItem() -> (Int) {
+        let index = Int(arc4random_uniform(UInt32(self.count)))
+        return index
+    }
+}
+
 

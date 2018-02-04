@@ -16,8 +16,4 @@ class CardCell: UICollectionViewCell {
         super.init(coder: aDecoder)
     }
 
-    
-    
-    
-    
 }
