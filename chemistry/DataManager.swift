@@ -21,16 +21,10 @@ class DataManager {
     var storage : [CardModel] = []
     var filePath: String!
     
-    let helium = CardModel(element: "Helium", image: #imageLiteral(resourceName: "Helium"))
-    
     func loadData() {
 
     }
-    
-//    func initialize() {
-//        st = makeCardsArray()
-//    }
-    
+
     
     func save() {
         
@@ -42,7 +36,7 @@ class DataManager {
         return paths[0]
     }
     
-//   - makeCard function takes the bundle as input and return an array of cards
+//   - makeCardArray function takes the bundle as input and return an array of cards
     
     func makeCardsArray() -> [CardModel] {
         var cards: [CardModel] = []

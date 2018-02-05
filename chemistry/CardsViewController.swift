@@ -15,7 +15,6 @@ let data = ["H": "Hhydrogen", "He": "Helium"]
 class CardsViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var widthCollectionView: NSLayoutConstraint!
     @IBOutlet weak var heightCollectionView: NSLayoutConstraint!
     
@@ -23,9 +22,15 @@ class CardsViewController: UIViewController {
     
     var cards: [CardModel]!
     var level: [CardModel] = []
+    var isFlipped = false
+    var lastFlippedIndex = -1
+    var lastFlippedCell: CardCell?
+    var indexOfOnlyFacedUpCard: Int?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         
         cards = DataManager.shared.makeCardsArray()
@@ -41,6 +46,7 @@ class CardsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
   
 //    - levelCreator create the level with 8 random matches (16 cards) and remove them from the storage
     
@@ -54,6 +60,74 @@ class CardsViewController: UIViewController {
         }
         level.shuffle()
         print(cards.count)
+    }
+    
+    // - MANAGER OF THE GAME
+    
+    func cardSelected(cell: CardCell, index: IndexPath) {
+        
+        // - the function enter in this if statement only when the user already touched a cell becouse "isFlipped" is true. The beginning of the game is at the end of the function, in the last "else" statement when "isFlipped" is not true.
+       
+        if isFlipped {
+            
+            // - this happens when the user touched twice the same cell, so nothing and we need to manage this case with a simple return
+            
+            if lastFlippedIndex == index.row {
+                // DO NOTHING
+                return
+            }
+                
+            // - this happens when the user touch a second different cell: animation and in completion the card match
+            else {
+                UIView.transition(with: cell, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
+                    cell.cardImage.image = self.level[index.row].image
+                }, completion: {(_) in
+                    
+                    // Cards Match succeeded ( first image = second image )
+                    if self.level[self.lastFlippedIndex].image == self.level[index.row].image {
+                        // Cards Match
+                        print("POINT")
+                        self.isFlipped = false
+                        
+                        // - disable the cells: the first touched and the second one
+                        cell.isUserInteractionEnabled = false
+                        self.lastFlippedCell?.isUserInteractionEnabled = false
+                        
+                        // - make them disappear
+                        UIView.animate(withDuration: 1, animations: {
+                            cell.alpha = 0.0
+                            self.lastFlippedCell?.alpha = 0.0
+                        })
+                    }
+                    else {
+                        // Cards Match failed ( first image != second image )
+                        print("WRONG")
+                        self.isFlipped = false
+                        
+                        // both the cards retrun to the starting position
+                        UIView.transition(with: cell, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
+                            cell.cardImage.image = #imageLiteral(resourceName: "back")
+
+                        }, completion: nil )
+                        UIView.transition(with: self.lastFlippedCell!, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
+                            self.lastFlippedCell?.cardImage.image = #imageLiteral(resourceName: "back")
+                            
+                        }, completion: nil )
+                    }
+                })
+
+            }
+        }
+            
+// - the game begins here, this else statement handles the first touch of the game
+        else {
+            lastFlippedIndex = index.row
+            lastFlippedCell = cell
+            isFlipped = true
+            UIView.transition(with: cell, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
+                cell.cardImage.image = self.level[index.row].image
+            }, completion: nil )
+        }
     }
     
 }
@@ -89,23 +163,14 @@ extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CardCell!
-        
-        UIView.transition(with: cell!, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
-            switch cell?.cardImage.image {
-            case #imageLiteral(resourceName: "back")?:
-                cell?.cardImage.image = self.level[indexPath.row].image
-            default:
-                cell?.cardImage.image = #imageLiteral(resourceName: "back")
-                
-            }
-        }, completion: nil)
+        cardSelected(cell: cell!, index: indexPath)
+    
     }
-    
-    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
 }
-
-
-
 
 //   - this function return a random item from the storage
 
@@ -123,5 +188,8 @@ extension Array {
         }
     }
 }
+
+
+
 
 

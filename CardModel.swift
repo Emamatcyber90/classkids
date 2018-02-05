@@ -10,6 +10,8 @@ import UIKit
 
 class CardModel {
     
+    var isFlipped = false
+    var isMatched = false
     var element: String
     var image: UIImage
     var backImage: UIImage
