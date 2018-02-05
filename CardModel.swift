@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardModel: NSObject {
+class CardModel {
     
     var element: String
     var image: UIImage

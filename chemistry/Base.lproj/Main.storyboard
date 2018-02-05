@@ -39,7 +39,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IGR-jV-JSV">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="IGR-jV-JSV">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <gestureRecognizers/>
                                                 </imageView>
@@ -80,4 +80,7 @@
             <point key="canvasLocation" x="92.578125" y="736.71875"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back" width="256" height="256"/>
+    </resources>
 </document>

@@ -10,10 +10,22 @@ import UIKit
 
 class CardCell: UICollectionViewCell {
     
+    var face: UIImage?
+    
     @IBOutlet public var cardImage: UIImageView!
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    /*init(faceImage face: UIImage) {
+        
+        self.face = face
+        
+        super.init()
+        
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}*/
 
 }

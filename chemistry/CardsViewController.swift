@@ -92,14 +92,15 @@ extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
+        let cell = collectionView.cellForItem(at: indexPath) as! CardCell!
         
         UIView.transition(with: cell!, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
-            switch cell?.backgroundColor {
-            case UIColor.blue?:
-                cell?.backgroundColor = .green
+            switch cell?.cardImage.image {
+            case #imageLiteral(resourceName: "back")?:
+                cell?.cardImage.image = self.level[indexPath.row].image
             default:
-                cell?.backgroundColor = .blue
+                cell?.cardImage.image = #imageLiteral(resourceName: "back")
+                
             }
         }, completion: nil)
     }
