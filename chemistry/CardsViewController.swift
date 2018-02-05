@@ -46,17 +46,13 @@ class CardsViewController: UIViewController {
     
     func levelCreator () {
         
-////        DataManager.shared.initialize()
-//        print(DataManager.shared.storage)
-//        print("------------------------")
-//
-        for i in 0...7 {
+        for _ in 0...7 {
             let myIndex = cards.randomItem()
             level.append(cards[myIndex])
+            level.append(cards[myIndex])
             cards.remove(at: myIndex)
-            print(level[i].element)
-            print(level[i].image)
         }
+        level.shuffle()
         print(cards.count)
     }
     
@@ -86,7 +82,7 @@ extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CardCell
-        cell.cardImage.image = level[indexPath.row].image
+        cell.cardImage.image = #imageLiteral(resourceName: "back")
         
         return cell
     }
@@ -117,6 +113,14 @@ extension Array {
     func randomItem() -> (Int) {
         let index = Int(arc4random_uniform(UInt32(self.count)))
         return index
+    }
+}
+
+extension Array {
+    mutating func shuffle() {
+        for _ in indices {
+            sort { (_,_) in arc4random() < arc4random() }
+        }
     }
 }
 
