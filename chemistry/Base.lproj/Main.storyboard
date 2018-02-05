@@ -1,58 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wju-2a-Xq6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="boV-DR-mSZ">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Cards View Controller-->
-        <scene sceneID="OP3-Wv-G3j">
+        <scene sceneID="JRm-r9-f9s">
             <objects>
-                <collectionViewController id="wju-2a-Xq6" customClass="CardsViewController" customModule="chemistry" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="2M5-v5-hvr">
+                <viewController id="boV-DR-mSZ" customClass="CardsViewController" customModule="chemistry" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1oT-96-kbF">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <gestureRecognizers/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="veq-xj-geM">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="ZKd-7T-7yg" customClass="CardCell" customModule="chemistry" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JTr-fr-jak">
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bc4-xM-c01">
+                                <rect key="frame" x="282" y="355" width="460" height="258"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="460" id="0Cj-D3-JwF"/>
+                                    <constraint firstAttribute="height" constant="258" id="ENi-a7-vDk"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="nSr-RO-OwK">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="4eJ-Xt-Cjx" customClass="CardCell" customModule="chemistry" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <gestureRecognizers/>
-                                        </imageView>
-                                    </subviews>
-                                </view>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IGR-jV-JSV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <gestureRecognizers/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="IGR-jV-JSV" firstAttribute="top" secondItem="4eJ-Xt-Cjx" secondAttribute="top" id="Rmz-qP-wkr"/>
+                                            <constraint firstAttribute="trailing" secondItem="IGR-jV-JSV" secondAttribute="trailing" id="SpZ-5x-Iu4"/>
+                                            <constraint firstAttribute="bottom" secondItem="IGR-jV-JSV" secondAttribute="bottom" id="Ufa-OD-t20"/>
+                                            <constraint firstItem="IGR-jV-JSV" firstAttribute="leading" secondItem="4eJ-Xt-Cjx" secondAttribute="leading" id="bBe-eo-bHr"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="cardImage" destination="IGR-jV-JSV" id="ooI-Wa-rSu"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
-                                    <outlet property="cardImage" destination="JTr-fr-jak" id="Hzl-LN-Fu0"/>
+                                    <outlet property="dataSource" destination="boV-DR-mSZ" id="Ckd-sY-U0m"/>
+                                    <outlet property="delegate" destination="boV-DR-mSZ" id="hLt-xB-ca5"/>
                                 </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="wju-2a-Xq6" id="4Nn-Xr-B3j"/>
-                            <outlet property="delegate" destination="wju-2a-Xq6" id="AnJ-Zn-EJp"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="97I-rv-V1W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bc4-xM-c01" firstAttribute="centerX" secondItem="1oT-96-kbF" secondAttribute="centerX" id="PAx-fs-4ys"/>
+                            <constraint firstItem="bc4-xM-c01" firstAttribute="centerY" secondItem="1oT-96-kbF" secondAttribute="centerY" constant="100" id="odL-LG-1tB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9Og-5i-hoD"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="bc4-xM-c01" id="aCu-AF-hLg"/>
+                        <outlet property="heightCollectionView" destination="ENi-a7-vDk" id="Mv7-El-cus"/>
+                        <outlet property="widthCollectionView" destination="0Cj-D3-JwF" id="P7R-sb-iuZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vwe-Mk-rRz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="92.578125" y="40.625"/>
+            <point key="canvasLocation" x="92.578125" y="736.71875"/>
         </scene>
     </scenes>
 </document>

@@ -11,20 +11,29 @@ import UIKit
 // Dummy data
 let data = ["H": "Hhydrogen", "He": "Helium"]
 
-private let reuseIdentifier = "Cell"
-
-import UIKit
 
 class CardsViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var widthCollectionView: NSLayoutConstraint!
+    @IBOutlet weak var heightCollectionView: NSLayoutConstraint!
+    
+    let cellSide: CGFloat = 100.0
+    
+    var cards: [CardModel]!
+    var level: [CardModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        cards = DataManager.shared.makeCardsArray()
+        
         levelCreator()
+        
+        widthCollectionView.constant = cellSide*4 + 20*3
+        heightCollectionView.constant = cellSide*4 + 20*3
    
     }
     
@@ -37,21 +46,23 @@ class CardsViewController: UIViewController {
     
     func levelCreator () {
         
-        DataManager.shared.initialize()
-        print(DataManager.shared.storage)
-        print("------------------------")
-        var level: [CardModel] = []
-        
+////        DataManager.shared.initialize()
+//        print(DataManager.shared.storage)
+//        print("------------------------")
+//
         for i in 0...7 {
-            let myIndex = DataManager.shared.storage.randomItem()
-            level.append(DataManager.shared.storage[myIndex])
-            DataManager.shared.storage.remove(at: myIndex)
+            let myIndex = cards.randomItem()
+            level.append(cards[myIndex])
+            cards.remove(at: myIndex)
             print(level[i].element)
             print(level[i].image)
         }
+        print(cards.count)
     }
     
 }
+
+
 
 extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
@@ -59,25 +70,23 @@ extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 4
+        return 1
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 4
+        return level.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 250, bottom: 20, right: 0)
-        
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: cellSide, height: cellSide)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CardCell
-        let card = DataManager.shared.helium
-        
-        cell.cardImage.image = card.backImage
+        cell.cardImage.image = level[indexPath.row].image
         
         return cell
     }
