@@ -11,8 +11,10 @@ import UIKit
 // Dummy data
 let data = ["H": "Hhydrogen", "He": "Helium"]
 
-
 class CardsViewController: UIViewController {
+    
+    lazy var game = Memory()
+
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -21,14 +23,9 @@ class CardsViewController: UIViewController {
     
     let cellSide: CGFloat = 100.0
     
-    var cards: [CardModel]!
-    var level: [CardModel] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        cards = DataManager.shared.makeCardsArray()
         
         levelCreator()
         
@@ -46,14 +43,8 @@ class CardsViewController: UIViewController {
     
     func levelCreator () {
         
-        for _ in 0...7 {
-            let myIndex = cards.randomItem()
-            level.append(cards[myIndex])
-            level.append(cards[myIndex])
-            cards.remove(at: myIndex)
-        }
-        level.shuffle()
-        print(cards.count)
+        game = Memory()
+        
     }
     
 }
@@ -72,7 +63,7 @@ extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return level.count
+        return game.level.count
     }
     
     
@@ -93,7 +84,7 @@ extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSou
         UIView.transition(with: cell!, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
             switch cell?.cardImage.image {
             case #imageLiteral(resourceName: "back")?:
-                cell?.cardImage.image = self.level[indexPath.row].image
+                cell?.cardImage.image = self.game.level[indexPath.row].image
             default:
                 cell?.cardImage.image = #imageLiteral(resourceName: "back")
                 
