@@ -17,7 +17,7 @@ class CardModel {
     var backImage: UIImage
     
     
-    init(element: String, image: UIImage) {
+    init(id element: String, image: UIImage) {
         self.element = element
         self.image = image
         self.backImage = #imageLiteral(resourceName: "back")
