@@ -120,11 +120,11 @@ class CardsViewController: UIViewController {
                         
                         // both the cards retrun to the starting position
                         UIView.transition(with: cell, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
-                            cell.cardImage.image = CardModel.backImage
+                            cell.cardImage.image = #imageLiteral(resourceName: "back")
 
                         }, completion: nil )
                         UIView.transition(with: self.lastFlippedCell!, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
-                            self.lastFlippedCell?.cardImage.image = CardModel.backImage
+                            self.lastFlippedCell?.cardImage.image = #imageLiteral(resourceName: "back")
                             
                         }, completion: nil )
                     }
@@ -170,7 +170,7 @@ extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CardCell
-        cell.cardImage.image = CardModel.backImage
+        cell.cardImage.image = #imageLiteral(resourceName: "back")
         return cell
     }
     
