@@ -17,7 +17,7 @@ class CardsViewController: UIViewController {
     
     let cellSide: CGFloat = 100.0
     
-    var cards: [CardModel]!
+    var elements: [Element]!
     var level: [CardModel] = []
     var isFlipped = false
     var lastFlippedIndex = -1
@@ -31,7 +31,8 @@ class CardsViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        cards = DataManager.shared.makeCardsArray()
+        elements = DataManager.shared.makeElementArray()
+        //cards = DataManager.shared.makeCardsArray()
         
         levelCreator()
         
@@ -51,10 +52,12 @@ class CardsViewController: UIViewController {
     func levelCreator () {
         level.removeAll()
         for _ in 0...7 {
-            let myIndex = cards.randomItem()
-            level.append(cards[myIndex])
-            level.append(cards[myIndex])
-            cards.remove(at: myIndex)
+            let myIndex = elements.randomItem()
+            let firstCard = CardModel(element: elements[myIndex].id, image: elements[myIndex].name)
+            let secondCard = CardModel(element: elements[myIndex].id, image: elements[myIndex].symbol)
+            level.append(firstCard)
+            level.append(secondCard)
+            elements.remove(at: myIndex)
         }
         level.shuffle()
     }
@@ -81,7 +84,7 @@ class CardsViewController: UIViewController {
                 }, completion: {(_) in
                     
                     // Cards Match succeeded ( first image = second image )
-                    if self.level[self.lastFlippedIndex].image == self.level[index.row].image {
+                    if self.level[self.lastFlippedIndex].element == self.level[index.row].element {
                         // Cards Match
                         print("POINT")
                         self.isFlipped = false
@@ -179,7 +182,6 @@ extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         return true
     }
-
 }
 
 //   - this function return a random item from the storage

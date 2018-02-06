@@ -38,8 +38,8 @@ class DataManager {
     
 //   - makeCardArray function takes the bundle as input and return an array of cards
     
-    func makeCardsArray() -> [CardModel] {
-        var cards: [CardModel] = []
+    func makeElementArray() -> [Element] {
+        var elements: [Element] = []
         
         let bundleName = "elem.bundle"
         let fileManager = FileManager.default
@@ -48,13 +48,29 @@ class DataManager {
         let contents = try! fileManager.contentsOfDirectory(at: assetURL, includingPropertiesForKeys: [URLResourceKey.nameKey, URLResourceKey.isDirectoryKey], options: .skipsHiddenFiles)
         for item in contents
         {
-            if let image = UIImage(named: item.lastPathComponent, in: Bundle(url: assetURL) , compatibleWith: nil) {
-                let card = CardModel(element: item.lastPathComponent, image: image)
-                cards.append(card)
+            if let imageName = UIImage(named: item.lastPathComponent, in: Bundle(url: assetURL) , compatibleWith: nil) {
+                let symbolString = item.lastPathComponent.getSecondImage()
+                if let imageSymbol = UIImage(named: symbolString, in: Bundle(url:assetURL), compatibleWith: nil) {
+                    let element = Element(id: item.lastPathComponent, name: imageName, symbol: imageSymbol)
+                    elements.append(element)
+                }
             }
         }
-        return cards
+        return elements
     }
     
     
+}
+
+extension String {
+    func getSecondImage () -> String {
+        var string = self
+        let ext = ".png"
+        for _ in 0...3 {
+            string.removeLast()
+        }
+        string.append("2")
+        string.append(ext)
+        return string
+    }
 }
