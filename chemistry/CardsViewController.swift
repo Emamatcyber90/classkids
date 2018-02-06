@@ -23,6 +23,7 @@ class CardsViewController: UIViewController {
     var lastFlippedIndex = -1
     var lastFlippedCell: CardCell?
     var indexOfOnlyFacedUpCard: Int?
+    var matches = 0
     
     
     override func viewDidLoad() {
@@ -48,7 +49,7 @@ class CardsViewController: UIViewController {
 //    - levelCreator create the level with 8 random matches (16 cards) and remove them from the storage
     
     func levelCreator () {
-        
+        level.removeAll()
         for _ in 0...7 {
             let myIndex = cards.randomItem()
             level.append(cards[myIndex])
@@ -84,6 +85,20 @@ class CardsViewController: UIViewController {
                         // Cards Match
                         print("POINT")
                         self.isFlipped = false
+                        self.matches += 1
+                        print(self.matches)
+
+                        if self.matches == 8 {
+                            self.levelCreator()
+                            self.matches = 0
+                            cell.isUserInteractionEnabled = true
+                            for i in 0...15 {
+                                self.collectionView.cellForItem(at: IndexPath(row: i, section: 0))?.isUserInteractionEnabled = true
+                            }
+                            self.collectionView.reloadData()
+                            self.collectionView.reloadInputViews()
+                            return
+                        }
                         
                         // - disable the cells: the first touched and the second one
                         cell.isUserInteractionEnabled = false
@@ -153,7 +168,6 @@ extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CardCell
         cell.cardImage.image = #imageLiteral(resourceName: "back")
-        
         return cell
     }
     

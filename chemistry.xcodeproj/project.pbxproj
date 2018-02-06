@@ -43,13 +43,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		76C144112028744300F16A7F /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		76D439432024580B00844DAE = {
 			isa = PBXGroup;
 			children = (
@@ -70,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				76D4396120245A9B00844DAE /* Supporting Files */,
-				76C144112028744300F16A7F /* Views */,
 				76D439532024580B00844DAE /* Main.storyboard */,
 				76D439802024707C00844DAE /* CardCell.swift */,
 				76D43974202461AA00844DAE /* CardsViewController.swift */,
