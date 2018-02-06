@@ -49,7 +49,7 @@ class DataManager {
         for item in contents
         {
             if let image = UIImage(named: item.lastPathComponent, in: Bundle(url: assetURL) , compatibleWith: nil) {
-                let card = CardModel(element: item.lastPathComponent, image: image)
+                let card = CardModel(id: 0, image: image)
                 cards.append(card)
             }
         }

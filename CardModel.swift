@@ -14,12 +14,12 @@ class CardModel {
     
     var isFlipped = false
     var isMatched = false
-    var element: String
+    var id: Int
     var image: UIImage
     
     
-    init(element: String, image: UIImage) {
-        self.element = element
+    init(id: Int, image: UIImage) {
+        self.id = id
         self.image = image
     }
 }
