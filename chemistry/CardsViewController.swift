@@ -8,13 +8,8 @@
 
 import UIKit
 
-// Dummy data
-let data = ["H": "Hhydrogen", "He": "Helium"]
-
 class CardsViewController: UIViewController {
     
-    lazy var game = Memory()
-
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var widthCollectionView: NSLayoutConstraint!
@@ -35,6 +30,8 @@ class CardsViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         
+        cards = DataManager.shared.makeCardsArray()
+        
         levelCreator()
         
         widthCollectionView.constant = cellSide*4 + 20*3
@@ -52,8 +49,13 @@ class CardsViewController: UIViewController {
     
     func levelCreator () {
         
-        game = Memory()
-        
+        for _ in 0...7 {
+            let myIndex = cards.randomItem()
+            level.append(cards[myIndex])
+            level.append(cards[myIndex])
+            cards.remove(at: myIndex)
+        }
+        level.shuffle()
     }
     
     // - MANAGER OF THE GAME
@@ -140,7 +142,7 @@ extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return game.level.count
+        return level.count
     }
     
     
