@@ -10,19 +10,17 @@ import UIKit
 
 class CardModel {
     
+    static let backImage = #imageLiteral(resourceName: "back")
+    
     var isFlipped = false
     var isMatched = false
     var element: String
     var image: UIImage
-    var backImage: UIImage
     
     
     init(element: String, image: UIImage) {
         self.element = element
         self.image = image
-        self.backImage = #imageLiteral(resourceName: "back")
     }
-
-    
 }
 
