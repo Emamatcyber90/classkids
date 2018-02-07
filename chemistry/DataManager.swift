@@ -27,8 +27,8 @@ class DataManager {
         return paths[0]
     }
     
-    func makeElementArray(bundleURL: URL) -> [Element] {
-        var elements: [Element] = []
+    func makeElementArray(bundleURL: URL) -> [CardModel] {
+        var elements: [CardModel] = []
         
         let bundleName = "elem.bundle"
         let fileManager = FileManager.default
@@ -39,8 +39,11 @@ class DataManager {
             if let imageName = UIImage(named: item.lastPathComponent, in: Bundle(url: assetURL) , compatibleWith: nil) {
                 let symbolString = item.lastPathComponent.getSecondImage()
                 if let imageSymbol = UIImage(named: symbolString, in: Bundle(url:assetURL), compatibleWith: nil) {
-                    let element = Element(id: item.lastPathComponent, name: imageName, symbol: imageSymbol)
-                    elements.append(element)
+                    let element = item.lastPathComponent
+                    let nameCard = CardModel(element: element, image: imageName)
+                    let symbolCard = CardModel(element: element, image: imageSymbol)
+                    elements.append(nameCard)
+                    elements.append(symbolCard)
                 }
             }
         }

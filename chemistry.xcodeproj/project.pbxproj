@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		492386C22029FA550077AC5A /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492386C12029FA550077AC5A /* Element.swift */; };
 		494C6D082025ECA90047E61C /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C6D072025ECA90047E61C /* CardModel.swift */; };
 		494C6D0A2025F0160047E61C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C6D092025F0160047E61C /* DataManager.swift */; };
 		494C6D0C20271FCD0047E61C /* elem.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 494C6D0B20271FCD0047E61C /* elem.bundle */; };
@@ -20,7 +19,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		492386C12029FA550077AC5A /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		494C6D072025ECA90047E61C /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardModel.swift; path = ../CardModel.swift; sourceTree = "<group>"; };
 		494C6D092025F0160047E61C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		494C6D0B20271FCD0047E61C /* elem.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = elem.bundle; sourceTree = "<group>"; };
@@ -69,7 +67,6 @@
 				76D439802024707C00844DAE /* CardCell.swift */,
 				76D43974202461AA00844DAE /* CardsViewController.swift */,
 				494C6D072025ECA90047E61C /* CardModel.swift */,
-				492386C12029FA550077AC5A /* Element.swift */,
 				494C6D092025F0160047E61C /* DataManager.swift */,
 				494C6D0B20271FCD0047E61C /* elem.bundle */,
 				76D4395B2024580B00844DAE /* Info.plist */,
@@ -161,7 +158,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				76D43975202461AA00844DAE /* CardsViewController.swift in Sources */,
-				492386C22029FA550077AC5A /* Element.swift in Sources */,
 				494C6D0A2025F0160047E61C /* DataManager.swift in Sources */,
 				494C6D082025ECA90047E61C /* CardModel.swift in Sources */,
 				76D439502024580B00844DAE /* AppDelegate.swift in Sources */,

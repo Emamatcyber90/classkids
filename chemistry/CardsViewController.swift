@@ -37,19 +37,10 @@ class CardsViewController: UIViewController {
         
     }
     
-    func createLevel () {
-        level.removeAll()
-        for element in DataManager.shared.makeElementArray(bundleURL: Bundle.main.bundleURL) {
-            let id = element.id
-            let firstCard = CardModel(id: id, image: element.name)
-            let secondCard = CardModel(id: id, image: element.symbol)
-            level.append(firstCard)
-            level.append(secondCard)
-        }
+    func createLevel() {
+        level = DataManager.shared.makeElementArray(bundleURL: Bundle.main.bundleURL)
         level.shuffle()
     }
-    
-    // - MANAGER OF THE GAME
     
     func cardSelected(cell: CardCell, index: IndexPath) {
         
@@ -57,18 +48,25 @@ class CardsViewController: UIViewController {
         
         if isFlipped {
             
+            self.view.isUserInteractionEnabled = false
+
             if lastFlippedIndex != index.row {
                 
-                flipCardCell(cell: cell, image: level[index.row].image, completion: {(_) in
+                let currentCard = level[index.row]
+                let lastFlippedCard = level[lastFlippedIndex]
+                
+                
+                UIView.transition(with: cell, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
+                    cell.cardImage.image = currentCard.image
+                }, completion: {(_) in
+                    self.view.isUserInteractionEnabled = false
+
                     
-                    // Cards Match succeeded ( first image = second image )
-                    if self.level[self.lastFlippedIndex].element == self.level[index.row].element {
-                        // Cards Match
-                        print("POINT")
+                    if currentCard.element == lastFlippedCard.element {
+                        print("Elements MATCH")
                         self.isFlipped = false
                         self.matches += 1
                         print(self.matches)
-                        
                         if self.matches == 8 {
                             self.createLevel()
                             self.matches = 0
@@ -90,19 +88,19 @@ class CardsViewController: UIViewController {
                             cell.alpha = 0.0
                             self.lastFlippedCell?.alpha = 0.0
                         })
-                    }
-                    else {
-                        // Cards Match failed ( first image != second image )
-                        print("WRONG")
+                        
+                    } else {
+                        print("Elements DO NOT MATCH")
                         self.isFlipped = false
-                        // both the cards retrun to the starting position
-                        // 1
-                        self.flipCardCell(cell: cell, image: self.backImage)
-                        // 2
-                        if let lastFlippedCell = self.lastFlippedCell {
-                            self.flipCardCell(cell: lastFlippedCell, image: self.backImage)
-                        }
+                        UIView.transition(with: cell, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
+                            usleep(500_000)
+                            cell.cardImage.image = self.backImage
+                        })
+                        UIView.transition(with: self.lastFlippedCell!, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
+                            self.lastFlippedCell!.cardImage.image = self.backImage
+                        })
                     }
+                    self.view.isUserInteractionEnabled = true
                 })
                 
             }
@@ -113,7 +111,9 @@ class CardsViewController: UIViewController {
             lastFlippedIndex = index.row
             lastFlippedCell = cell
             isFlipped = true
-            flipCardCell(cell: cell, image: level[index.row].image)
+            UIView.transition(with: cell, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
+                cell.cardImage.image = self.level[index.row].image
+            })
         }
     }
     

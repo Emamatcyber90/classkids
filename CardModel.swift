@@ -11,12 +11,11 @@ import UIKit
 struct CardModel {
     
     var isFlipped = false
-    var isMatched = false
     
     let element: String
     let image: UIImage
     
-    init(id element: String, image: UIImage) {
+    init(element: String, image: UIImage) {
         self.element = element
         self.image = image
     }
