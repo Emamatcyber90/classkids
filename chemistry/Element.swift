@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Element {
+struct Element {
     
     var id: String
     var name: UIImage

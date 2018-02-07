@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardModel {
+struct CardModel {
     
     var isFlipped = false
     var isMatched = false
