@@ -21,29 +21,17 @@ class DataManager {
     var storage : [CardModel] = []
     var filePath: String!
     
-    func loadData() {
-
-    }
-
-    
-    func save() {
-        
-    }
-    
     func folderDocuments () -> String {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         //print(paths[0])
         return paths[0]
     }
     
-//   - makeCardArray function takes the bundle as input and return an array of cards
-    
-    func makeElementArray() -> [Element] {
+    func makeElementArray(bundleURL: URL) -> [Element] {
         var elements: [Element] = []
         
         let bundleName = "elem.bundle"
         let fileManager = FileManager.default
-        let bundleURL = Bundle.main.bundleURL
         let assetURL = bundleURL.appendingPathComponent(bundleName)
         let contents = try! fileManager.contentsOfDirectory(at: assetURL, includingPropertiesForKeys: [URLResourceKey.nameKey, URLResourceKey.isDirectoryKey], options: .skipsHiddenFiles)
         for item in contents

@@ -28,22 +28,17 @@ class CardsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        //cards = DataManager.shared.makeCardsArray()
-        
-        levelCreator()
+        // Start the level
+        createLevel()
         
         widthCollectionView.constant = cellSide*4 + 20*3
         heightCollectionView.constant = cellSide*4 + 20*3
         
     }
     
-    
-    //    - levelCreator create the level with 8 random matches (16 cards) and remove them from the storage
-    
-    func levelCreator () {
+    func createLevel () {
         level.removeAll()
-        for element in DataManager.shared.makeElementArray() {
+        for element in DataManager.shared.makeElementArray(bundleURL: Bundle.main.bundleURL) {
             let id = element.id
             let firstCard = CardModel(id: id, image: element.name)
             let secondCard = CardModel(id: id, image: element.symbol)
@@ -63,9 +58,7 @@ class CardsViewController: UIViewController {
             
             if lastFlippedIndex != index.row {
                 
-                UIView.transition(with: cell, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
-                    cell.cardImage.image = self.level[index.row].image
-                }, completion: {(_) in
+                flipCardCell(cell: cell, image: level[index.row].image, completion: {(_) in
                     
                     // Cards Match succeeded ( first image = second image )
                     if self.level[self.lastFlippedIndex].element == self.level[index.row].element {
@@ -76,7 +69,7 @@ class CardsViewController: UIViewController {
                         print(self.matches)
                         
                         if self.matches == 8 {
-                            self.levelCreator()
+                            self.createLevel()
                             self.matches = 0
                             cell.isUserInteractionEnabled = true
                             for i in 0...15 {
@@ -101,16 +94,13 @@ class CardsViewController: UIViewController {
                         // Cards Match failed ( first image != second image )
                         print("WRONG")
                         self.isFlipped = false
-                        
                         // both the cards retrun to the starting position
-                        UIView.transition(with: cell, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
-                            cell.cardImage.image = #imageLiteral(resourceName: "back")
-                            
-                        }, completion: nil )
-                        UIView.transition(with: self.lastFlippedCell!, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
-                            self.lastFlippedCell?.cardImage.image = #imageLiteral(resourceName: "back")
-                            
-                        }, completion: nil )
+                        // 1
+                        self.flipCardCell(cell: cell, image: #imageLiteral(resourceName: "back"))
+                        // 2
+                        if let lastFlippedCell = self.lastFlippedCell {
+                            self.flipCardCell(cell: lastFlippedCell, image: #imageLiteral(resourceName: "back"))
+                        }
                     }
                 })
                 
@@ -122,10 +112,15 @@ class CardsViewController: UIViewController {
             lastFlippedIndex = index.row
             lastFlippedCell = cell
             isFlipped = true
-            UIView.transition(with: cell, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
-                cell.cardImage.image = self.level[index.row].image
-            }, completion: nil )
+            flipCardCell(cell: cell, image: level[index.row].image)
         }
+    }
+    
+    // Handles the flipping animation revealing the new image
+    func flipCardCell(cell: CardCell, image: UIImage, completion: ((Bool) -> Void)? = nil) {
+        UIView.transition(with: cell, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
+            cell.cardImage.image = image
+        }, completion: completion)
     }
     
 }
