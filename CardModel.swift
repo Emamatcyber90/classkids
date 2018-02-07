@@ -12,15 +12,13 @@ struct CardModel {
     
     var isFlipped = false
     var isMatched = false
-    var element: String
-    var image: UIImage
-    var backImage: UIImage
     
+    let element: String
+    let image: UIImage
     
     init(id element: String, image: UIImage) {
         self.element = element
         self.image = image
-        self.backImage = #imageLiteral(resourceName: "back")
     }
 
     

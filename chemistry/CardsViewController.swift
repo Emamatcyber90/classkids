@@ -10,6 +10,7 @@ import UIKit
 
 class CardsViewController: UIViewController {
     
+    let backImage = #imageLiteral(resourceName: "back")
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var widthCollectionView: NSLayoutConstraint!
@@ -96,10 +97,10 @@ class CardsViewController: UIViewController {
                         self.isFlipped = false
                         // both the cards retrun to the starting position
                         // 1
-                        self.flipCardCell(cell: cell, image: #imageLiteral(resourceName: "back"))
+                        self.flipCardCell(cell: cell, image: self.backImage)
                         // 2
                         if let lastFlippedCell = self.lastFlippedCell {
-                            self.flipCardCell(cell: lastFlippedCell, image: #imageLiteral(resourceName: "back"))
+                            self.flipCardCell(cell: lastFlippedCell, image: self.backImage)
                         }
                     }
                 })
@@ -149,7 +150,7 @@ extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CardCell
-        cell.cardImage.image = #imageLiteral(resourceName: "back")
+        cell.cardImage.image = backImage
         return cell
     }
     
