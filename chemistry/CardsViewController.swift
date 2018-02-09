@@ -16,7 +16,7 @@ class CardsViewController: UIViewController {
     @IBOutlet weak var widthCollectionView: NSLayoutConstraint!
     @IBOutlet weak var heightCollectionView: NSLayoutConstraint!
     
-    let cellSide: CGFloat = 100.0
+//    let cellSide: CGFloat = 100.0
     
     var level: [CardModel] = []
     var isFlipped = false
@@ -32,8 +32,8 @@ class CardsViewController: UIViewController {
         // Start the level
         createLevel()
         
-        widthCollectionView.constant = cellSide*4 + 20*3
-        heightCollectionView.constant = cellSide*4 + 20*3
+//        widthCollectionView.constant = cellSide*4 + 20*3
+//        heightCollectionView.constant = cellSide*4 + 20*3
         
     }
     
@@ -145,7 +145,7 @@ extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: cellSide, height: cellSide)
+        return CGSize(width: 112, height: 112)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
