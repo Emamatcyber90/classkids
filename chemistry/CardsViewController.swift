@@ -54,13 +54,14 @@ class CardsViewController: UIViewController {
                 let currentCard = level[index.row]
                 let lastFlippedCard = level[lastFlippedIndex]
                 
+                self.view.isUserInteractionEnabled = false
                 
                 UIView.transition(with: cell, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
                     cell.cardImage.image = currentCard.image
                 }, completion: {(_) in
                     
+
                     if currentCard.element == lastFlippedCard.element {
-                        self.view.isUserInteractionEnabled = false
                         print("Elements MATCH")
                         self.isFlipped = false
                         self.matches += 1
@@ -88,7 +89,6 @@ class CardsViewController: UIViewController {
                         })
                         
                     } else {
-                        self.view.isUserInteractionEnabled = false
                         print("Elements DO NOT MATCH")
                         self.isFlipped = false
                         UIView.transition(with: cell, duration: 0.5, options: [.transitionFlipFromLeft], animations: {

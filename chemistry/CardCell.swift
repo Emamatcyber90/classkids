@@ -9,9 +9,7 @@
 import UIKit
 
 class CardCell: UICollectionViewCell {
-    
-    var face: UIImage?
-    
+        
     @IBOutlet public var cardImage: UIImageView!
 
 }
