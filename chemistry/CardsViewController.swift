@@ -16,7 +16,7 @@ class CardsViewController: UIViewController {
     @IBOutlet weak var widthCollectionView: NSLayoutConstraint!
     @IBOutlet weak var heightCollectionView: NSLayoutConstraint!
     
-//    let cellSide: CGFloat = 100.0
+    var cellSide: CGFloat = 100
     
     var level: [CardModel] = []
     var isFlipped = false
@@ -25,15 +25,36 @@ class CardsViewController: UIViewController {
     var indexOfOnlyFacedUpCard: Int?
     var matches = 0
     
+    var iPadModel: String {
+        let height = UIScreen.main.bounds.height
+        if height == 768 {
+            return "iPad"
+        } else if height == 834 {
+            return "iPad Pro 10.5"
+        } else {
+            return "iPad Pro 12.9"
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        switch iPadModel {
+        case "iPad":
+            cellSide = 100
+        case "iPad Pro 10.5":
+            cellSide = 135
+        default:
+            cellSide = 155
+        }
+        
+        
         // Start the level
         createLevel()
         
-//        widthCollectionView.constant = cellSide*4 + 20*3
-//        heightCollectionView.constant = cellSide*4 + 20*3
+        widthCollectionView.constant = cellSide*6 + 20*5
+        heightCollectionView.constant = cellSide*3 + 20*2
         
     }
     
@@ -145,7 +166,7 @@ extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 112, height: 112)
+        return CGSize(width: cellSide, height: cellSide)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

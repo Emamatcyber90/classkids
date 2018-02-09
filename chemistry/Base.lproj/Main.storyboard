@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bc4-xM-c01">
-                                <rect key="frame" x="84" y="368" width="796" height="380"/>
+                                <rect key="frame" x="114" y="368" width="796" height="380"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="380" id="OEN-6w-PZP"/>
-                                    <constraint firstAttribute="width" constant="796" id="dR3-Lj-VK6"/>
+                                    <constraint firstAttribute="width" constant="796" id="ce9-jb-jFg"/>
+                                    <constraint firstAttribute="height" constant="380" id="w87-Yo-f3k"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="nSr-RO-OwK">
                                     <size key="itemSize" width="50" height="50"/>
@@ -63,7 +62,7 @@
                                 </connections>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="78T-uj-sVF">
-                                <rect key="frame" x="84" y="57" width="540" height="210"/>
+                                <rect key="frame" x="84" y="60" width="540" height="210"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XgQ-Sd-J7V">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="210"/>
@@ -750,16 +749,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="9Og-5i-hoD" firstAttribute="trailing" secondItem="bc4-xM-c01" secondAttribute="trailing" constant="144" id="Ln3-FK-TX8"/>
-                            <constraint firstItem="78T-uj-sVF" firstAttribute="top" secondItem="9Og-5i-hoD" secondAttribute="top" constant="37" id="av2-eL-swl"/>
-                            <constraint firstItem="bc4-xM-c01" firstAttribute="leading" secondItem="9Og-5i-hoD" secondAttribute="leading" constant="84" id="bN0-ev-vOc"/>
+                            <constraint firstItem="bc4-xM-c01" firstAttribute="centerX" secondItem="1oT-96-kbF" secondAttribute="centerX" id="QCf-Sq-6b7"/>
+                            <constraint firstItem="9Og-5i-hoD" firstAttribute="bottom" secondItem="bc4-xM-c01" secondAttribute="bottom" constant="20" id="Rmg-zd-re5"/>
+                            <constraint firstItem="78T-uj-sVF" firstAttribute="top" secondItem="9Og-5i-hoD" secondAttribute="top" constant="40" id="av2-eL-swl"/>
                             <constraint firstItem="78T-uj-sVF" firstAttribute="leading" secondItem="9Og-5i-hoD" secondAttribute="leading" constant="84" id="e2j-Hj-kj8"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="bc4-xM-c01" secondAttribute="bottom" constant="20" id="xuq-k0-Jd4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Og-5i-hoD"/>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="bc4-xM-c01" id="aCu-AF-hLg"/>
+                        <outlet property="collectionView" destination="bc4-xM-c01" id="dHH-hx-d2r"/>
+                        <outlet property="heightCollectionView" destination="w87-Yo-f3k" id="Axg-LW-6AT"/>
+                        <outlet property="widthCollectionView" destination="ce9-jb-jFg" id="xaP-dO-5jD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vwe-Mk-rRz" userLabel="First Responder" sceneMemberID="firstResponder"/>
