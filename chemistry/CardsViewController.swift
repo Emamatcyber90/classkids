@@ -69,20 +69,19 @@ class CardsViewController: UIViewController {
         
         if isFlipped {
             
-            self.view.isUserInteractionEnabled = false
 
             if lastFlippedIndex != index.row {
                 
                 let currentCard = level[index.row]
                 let lastFlippedCard = level[lastFlippedIndex]
                 
+                self.view.isUserInteractionEnabled = false
                 
                 UIView.transition(with: cell, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
                     cell.cardImage.image = currentCard.image
                 }, completion: {(_) in
-                    self.view.isUserInteractionEnabled = false
-
                     
+
                     if currentCard.element == lastFlippedCard.element {
                         print("Elements MATCH")
                         self.isFlipped = false
