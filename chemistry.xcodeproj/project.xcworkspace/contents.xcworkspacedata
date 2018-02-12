@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:chemistry.xcodeproj">
+      location = "group:/Users/louisdebaere/Developer/chemistry/chemistry/CardModel.swift">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

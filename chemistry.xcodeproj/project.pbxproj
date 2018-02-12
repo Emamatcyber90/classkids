@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		494C6D082025ECA90047E61C /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C6D072025ECA90047E61C /* CardModel.swift */; };
 		494C6D0A2025F0160047E61C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C6D092025F0160047E61C /* DataManager.swift */; };
 		494C6D0C20271FCD0047E61C /* elem.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 494C6D0B20271FCD0047E61C /* elem.bundle */; };
+		765011C12031922B0008A47F /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765011C02031922B0008A47F /* CardModel.swift */; };
 		76D439502024580B00844DAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D4394F2024580B00844DAE /* AppDelegate.swift */; };
 		76D439552024580B00844DAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D439532024580B00844DAE /* Main.storyboard */; };
 		76D439572024580B00844DAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76D439562024580B00844DAE /* Assets.xcassets */; };
@@ -19,9 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		494C6D072025ECA90047E61C /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardModel.swift; path = ../CardModel.swift; sourceTree = "<group>"; };
 		494C6D092025F0160047E61C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		494C6D0B20271FCD0047E61C /* elem.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = elem.bundle; sourceTree = "<group>"; };
+		765011C02031922B0008A47F /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardModel.swift; path = /Users/louisdebaere/Developer/chemistry/chemistry/CardModel.swift; sourceTree = "<absolute>"; };
+		765011C4203192A50008A47F /* Elements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Elements.plist; path = elem.bundle/Elements.plist; sourceTree = "<group>"; };
 		76D4394C2024580B00844DAE /* chemistry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chemistry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D4394F2024580B00844DAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76D439542024580B00844DAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,8 +67,9 @@
 				76D439532024580B00844DAE /* Main.storyboard */,
 				76D439802024707C00844DAE /* CardCell.swift */,
 				76D43974202461AA00844DAE /* CardsViewController.swift */,
-				494C6D072025ECA90047E61C /* CardModel.swift */,
+				765011C02031922B0008A47F /* CardModel.swift */,
 				494C6D092025F0160047E61C /* DataManager.swift */,
+				765011C4203192A50008A47F /* Elements.plist */,
 				494C6D0B20271FCD0047E61C /* elem.bundle */,
 				76D4395B2024580B00844DAE /* Info.plist */,
 			);
@@ -159,9 +161,9 @@
 			files = (
 				76D43975202461AA00844DAE /* CardsViewController.swift in Sources */,
 				494C6D0A2025F0160047E61C /* DataManager.swift in Sources */,
-				494C6D082025ECA90047E61C /* CardModel.swift in Sources */,
 				76D439502024580B00844DAE /* AppDelegate.swift in Sources */,
 				76D439812024707C00844DAE /* CardCell.swift in Sources */,
+				765011C12031922B0008A47F /* CardModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

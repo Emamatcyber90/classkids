@@ -6,19 +6,20 @@
 //  Copyright © 2018 The Horcruxes. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class CardModel {
+struct CardModel {
     
-    var element: String
-    var image: UIImage
-    let backImage: UIImage = #imageLiteral(resourceName: "back")
+    var isFlipped = false
     
+    let element: String
+    let image: UIImage
     
     init(element: String, image: UIImage) {
         self.element = element
         self.image = image
     }
+
     
 }
+

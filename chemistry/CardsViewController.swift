@@ -12,6 +12,7 @@ class CardsViewController: UIViewController {
     
     let backImage = #imageLiteral(resourceName: "back")
     
+    @IBOutlet weak var tableStackView: UIStackView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var widthCollectionView: NSLayoutConstraint!
     @IBOutlet weak var heightCollectionView: NSLayoutConstraint!
