@@ -60,7 +60,7 @@ class CardsViewController: UIViewController {
     }
     
     func createLevel() {
-        level = DataManager.shared.makeElementArray(bundleURL: Bundle.main.bundleURL)
+        level = DataManager.shared.makeElementArray()
         level.shuffle()
     }
     

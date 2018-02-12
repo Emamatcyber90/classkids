@@ -11,57 +11,29 @@ import UIKit
 
 class DataManager {
     
-    
-    // - Singleton
-
     static let shared = DataManager()
     
-    // - Cointainer of CardModel instances
-    
-    var storage : [CardModel] = []
-    var filePath: String!
-    
-    func folderDocuments () -> String {
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        //print(paths[0])
-        return paths[0]
-    }
-    
-    func makeElementArray(bundleURL: URL) -> [CardModel] {
-        var elements: [CardModel] = []
-        
-        let bundleName = "elem.bundle"
-        let fileManager = FileManager.default
-        let assetURL = bundleURL.appendingPathComponent(bundleName)
-        let contents = try! fileManager.contentsOfDirectory(at: assetURL, includingPropertiesForKeys: [URLResourceKey.nameKey, URLResourceKey.isDirectoryKey], options: .skipsHiddenFiles)
-        for item in contents
-        {
-            if let imageName = UIImage(named: item.lastPathComponent, in: Bundle(url: assetURL) , compatibleWith: nil) {
-                let symbolString = item.lastPathComponent.getSecondImage()
-                if let imageSymbol = UIImage(named: symbolString, in: Bundle(url:assetURL), compatibleWith: nil) {
-                    let element = item.lastPathComponent
-                    let nameCard = CardModel(element: element, image: imageName)
-                    let symbolCard = CardModel(element: element, image: imageSymbol)
-                    elements.append(nameCard)
-                    elements.append(symbolCard)
+    func makeElementArray() -> [CardModel] {
+        var cards: [CardModel] = []
+        if let path = Bundle.main.path(forResource: "Elements", ofType: "plist") {
+            let elements = NSArray(contentsOfFile: path)
+            for element in elements! {
+                let element = element as! [String: Any]
+                let name = element["name"] as! String
+                if let nameImage = UIImage(named: name), let symbolImage = UIImage(named: "\(name)2") {
+                    let nameCard = CardModel(element: name, image: nameImage)
+                    let symbolCard = CardModel(element: name, image: symbolImage)
+                    cards.append(nameCard)
+                    cards.append(symbolCard)
+                } else {
+                    print("Images not found")
                 }
             }
+        } else {
+            print("File not found")
         }
-        return elements
+        
+        return cards
     }
     
-    
-}
-
-extension String {
-    func getSecondImage () -> String {
-        var string = self
-        let ext = ".png"
-        for _ in 0...3 {
-            string.removeLast()
-        }
-        string.append("2")
-        string.append(ext)
-        return string
-    }
 }
