@@ -10,6 +10,8 @@ import UIKit
 
 class CardsViewController: UIViewController {
     
+    static var elementNameForNumber: [Int: String]!
+    
     let backImage = #imageLiteral(resourceName: "back")
     
     @IBOutlet weak var tableStackView: UIStackView!
@@ -37,9 +39,34 @@ class CardsViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        CardsViewController.elementNameForNumber = setupElementNameForNumber()
+        
+        for view in tableStackView.arrangedSubviews {
+            if let subStackView = view as? UIStackView {
+                for view in subStackView.arrangedSubviews {
+                    if let imageView = view as? UIImageView {
+                        guard let name = CardsViewController.elementNameForNumber[view.tag] else {
+                            print("Invalid tag")
+                            return
+                        }
+                        imageView.image = UIImage(named: name)
+                    } else {
+                        for view in view.subviews {
+                            if let imageView = view as? UIImageView {
+                                guard let name = CardsViewController.elementNameForNumber[view.tag] else {
+                                    print("Invalid tag")
+                                    return
+                                }
+                                imageView.image = UIImage(named: name)
+                            }
+                        }
+                    }
+                }
+            }
+        }
         
         switch iPadModel {
         case "iPad":
@@ -52,15 +79,60 @@ class CardsViewController: UIViewController {
         
         
         // Start the level
-        createLevel()
+        createLevel(cardPairsCount: 8)
         
         widthCollectionView.constant = cellSide*6 + 20*5
         heightCollectionView.constant = cellSide*3 + 20*2
         
     }
     
-    func createLevel() {
-        level = DataManager.shared.makeElementArray()
+    func setupElementNameForNumber() -> [Int: String] {
+        var elementNameForNumber = [Int: String]()
+        
+        if let path = Bundle.main.path(forResource: "Elements", ofType: "plist") {
+            let elements = NSArray(contentsOfFile: path)
+            
+            for element in elements! {
+                let element = element as! [String: Any]
+                let name = element["name"] as! String
+                let number = element["atomicNumber"] as! Int
+                elementNameForNumber[number] = name
+            }
+        } else {
+            print("Elements.plist file not found")
+        }
+        
+        return elementNameForNumber
+    }
+    
+    func createLevel(cardPairsCount count: Int) {        
+//        FOR NOW FOR TESTING
+        for index in 1...count {
+            let randomElementName = CardsViewController.elementNameForNumber![index]!
+            if let nameImage = UIImage(named: randomElementName), let symbolImage = UIImage(named: "\(randomElementName)2") {
+                let nameCard = CardModel(element: randomElementName, image: nameImage)
+                let symbolCard = CardModel(element: randomElementName, image: symbolImage)
+                level.append(nameCard)
+                level.append(symbolCard)
+            } else {
+                print("Images not found")
+            }
+        }
+        
+
+//        ACTUALLY ALL ELEMENTS
+//        for _ in 0..<count {
+//            let randomElementNumber = Int(arc4random_uniform(UInt32(CardsViewController.elementNameForNumber!.count)))
+//            let randomElementName = CardsViewController.elementNameForNumber![randomElementNumber]!
+//            if let nameImage = UIImage(named: randomElementName), let symbolImage = UIImage(named: "\(randomElementName)2") {
+//                let nameCard = CardModel(element: randomElementName, image: nameImage)
+//                let symbolCard = CardModel(element: randomElementName, image: symbolImage)
+//                cards.append(nameCard)
+//                cards.append(symbolCard)
+//            } else {
+//                print("Images not found")
+//            }
+//        }
         level.shuffle()
     }
     
@@ -89,7 +161,7 @@ class CardsViewController: UIViewController {
                         self.matches += 1
                         print(self.matches)
                         if self.matches == 8 {
-                            self.createLevel()
+                            self.createLevel(cardPairsCount: 8)
                             self.matches = 0
                             cell.isUserInteractionEnabled = true
                             for i in 0...15 {
@@ -185,15 +257,6 @@ extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
 }
 
-//   - this function return a random item from the storage
-
-extension Array {
-    func randomItem() -> (Int) {
-        let index = Int(arc4random_uniform(UInt32(self.count)))
-        return index
-    }
-}
-
 extension Array {
     mutating func shuffle() {
         for _ in indices {
@@ -201,8 +264,3 @@ extension Array {
         }
     }
 }
-
-
-
-
-
