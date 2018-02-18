@@ -1099,7 +1099,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esJ-tW-c3s">
-                                <rect key="frame" x="891" y="59" width="107" height="30"/>
+                                <rect key="frame" x="897" y="20" width="107" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back to the Lab"/>
                                 <connections>
@@ -1156,6 +1156,6 @@
         <image name="back" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JOH-4K-FfF"/>
+        <segue reference="Fqw-3t-HtB"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -28,10 +28,11 @@ class ViewController: UIViewController {
         updateLabel(currentButton: sender)
     }
     
+    // calls the matching
     @IBAction func matching(_ sender: UIButton) {
-        matchFormula(textField: outputLabel)
-
+        matchFormula()
     }
+    
     // clear the outputLabel
     @IBAction func deleteTap(_ sender: UIButton) {
         outputLabel.text?.removeAll()
@@ -45,32 +46,37 @@ class ViewController: UIViewController {
     }
     
     
-    // add the element's text in the outputLabel and then calls the matching
+    // add the element's text in the outputLabel
     func updateLabel(currentButton: UIButton) {
         let buttonTitle = currentButton.title(for: .normal)!
         print("Element / Number: \(buttonTitle)")
         outputLabel.text?.append(buttonTitle)
-//        matchFormula(textField: outputLabel)
+//        matchFormula()
     }
 //    func updateHint(currentButton: UIButton) {
 //        let buttonTitle = currentButton.title(for: .normal)!
 //        hint.text?.append(buttonTitle)
 //    }
+    
     // do the matching and build the alert (optional, we can find another way to show the user he succeded
-    func matchFormula(textField: UILabel) {
+    func matchFormula() {
         let valuesArray = Array(formulaDictionary.values)
         let keysArray = Array(formulaDictionary.keys)
-        let message = "Amazeballs, si fott"
-        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: {action in self.nextLevel()})
-        alert.addAction(okAction)
+        let successAlert = UIAlertController(title: "Amazeballs, si fott", message: nil, preferredStyle: .alert)
+        let failAlert = UIAlertController(title: "Try again!", message: nil, preferredStyle: .alert)
+        let successAction = UIAlertAction(title: "OK", style: .default, handler: {action in self.nextLevel()})
+        let failAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        successAlert.addAction(successAction)
+        failAlert.addAction(failAction)
         
         for i in valuesArray.indices {
-            if textField.text == valuesArray[i] {
+            if outputLabel.text == valuesArray[i] {
                 if targetLabel.text == keysArray[i] {
-                    present(alert, animated: true, completion: nil)
+                    present(successAlert, animated: true, completion: nil)
                 print("Match")
                 }
+            } else {
+//                present(failAlert, animated: true, completion: nil)       I get an error here, don't know y
             }
         }
     }

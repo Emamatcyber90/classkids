@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		765011C12031922B0008A47F /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765011C02031922B0008A47F /* CardModel.swift */; };
 		765011C620319FDF0008A47F /* Elements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 765011C520319FDF0008A47F /* Elements.plist */; };
 		76D439502024580B00844DAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D4394F2024580B00844DAE /* AppDelegate.swift */; };
 		76D439552024580B00844DAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D439532024580B00844DAE /* Main.storyboard */; };
@@ -17,10 +16,10 @@
 		76D439812024707C00844DAE /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D439802024707C00844DAE /* CardCell.swift */; };
 		76ECCA2E2039D36200D12D08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ECCA2C2039D36200D12D08 /* ViewController.swift */; };
 		76ECCA2F2039D36200D12D08 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ECCA2D2039D36200D12D08 /* Model.swift */; };
+		B4CB3B022039DAC0003A61A5 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CB3B012039DAC0003A61A5 /* CardModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		765011C02031922B0008A47F /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardModel.swift; path = /Users/louisdebaere/Developer/chemistry/chemistry/CardModel.swift; sourceTree = "<absolute>"; };
 		765011C520319FDF0008A47F /* Elements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Elements.plist; sourceTree = "<group>"; };
 		76D4394C2024580B00844DAE /* chemistry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chemistry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D4394F2024580B00844DAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +31,7 @@
 		76D439802024707C00844DAE /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		76ECCA2C2039D36200D12D08 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		76ECCA2D2039D36200D12D08 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		B4CB3B012039DAC0003A61A5 /* CardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +68,7 @@
 				76D439532024580B00844DAE /* Main.storyboard */,
 				76D439802024707C00844DAE /* CardCell.swift */,
 				76D43974202461AA00844DAE /* CardsViewController.swift */,
-				765011C02031922B0008A47F /* CardModel.swift */,
+				B4CB3B012039DAC0003A61A5 /* CardModel.swift */,
 				76ECCA2C2039D36200D12D08 /* ViewController.swift */,
 				76ECCA2D2039D36200D12D08 /* Model.swift */,
 				765011C520319FDF0008A47F /* Elements.plist */,
@@ -163,9 +163,9 @@
 				76ECCA2E2039D36200D12D08 /* ViewController.swift in Sources */,
 				76D43975202461AA00844DAE /* CardsViewController.swift in Sources */,
 				76D439502024580B00844DAE /* AppDelegate.swift in Sources */,
+				B4CB3B022039DAC0003A61A5 /* CardModel.swift in Sources */,
 				76ECCA2F2039D36200D12D08 /* Model.swift in Sources */,
 				76D439812024707C00844DAE /* CardCell.swift in Sources */,
-				765011C12031922B0008A47F /* CardModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,7 +303,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GPZ2A8F47N;
+				DEVELOPMENT_TEAM = 3L3FL4C8QK;
 				INFOPLIST_FILE = chemistry/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.horcruxes.chemistry;
@@ -318,7 +318,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GPZ2A8F47N;
+				DEVELOPMENT_TEAM = 3L3FL4C8QK;
 				INFOPLIST_FILE = chemistry/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.horcruxes.chemistry;
