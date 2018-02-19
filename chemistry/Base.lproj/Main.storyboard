@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Cards View Controller-->
+        <!--Controller 1st Game-->
         <scene sceneID="JRm-r9-f9s">
             <objects>
-                <viewController id="boV-DR-mSZ" customClass="CardsViewController" customModule="chemistry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="boV-DR-mSZ" customClass="Controller1stGame" customModule="chemistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1oT-96-kbF">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1027,10 +1027,10 @@
             </objects>
             <point key="canvasLocation" x="-671.484375" y="830.46875"/>
         </scene>
-        <!--View Controller-->
+        <!--Controller 2nd Game-->
         <scene sceneID="1oz-M0-VQL">
             <objects>
-                <viewController id="g16-BF-UlD" customClass="ViewController" customModule="chemistry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="g16-BF-UlD" customClass="Controller2ndGame" customModule="chemistry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PPe-S9-ME7">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1372,6 +1372,6 @@
         <image name="back" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fqw-3t-HtB"/>
+        <segue reference="JOH-4K-FfF"/>
     </inferredMetricsTieBreakers>
 </document>

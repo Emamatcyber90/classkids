@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardsViewController: UIViewController {
+class Controller1stGame: UIViewController {
     
     static var elementNameForNumber: [Int: String]!
     
@@ -42,13 +42,13 @@ class CardsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CardsViewController.elementNameForNumber = setupElementNameForNumber()
+        Controller1stGame.elementNameForNumber = setupElementNameForNumber()
         
         for view in tableStackView.arrangedSubviews {
             if let subStackView = view as? UIStackView {
                 for view in subStackView.arrangedSubviews {
                     if let imageView = view as? UIImageView {
-                        guard let name = CardsViewController.elementNameForNumber[view.tag] else {
+                        guard let name = Controller1stGame.elementNameForNumber[view.tag] else {
                             print("Invalid tag")
                             return
                         }
@@ -56,7 +56,7 @@ class CardsViewController: UIViewController {
                     } else {
                         for view in view.subviews {
                             if let imageView = view as? UIImageView {
-                                guard let name = CardsViewController.elementNameForNumber[view.tag] else {
+                                guard let name = Controller1stGame.elementNameForNumber[view.tag] else {
                                     print("Invalid tag")
                                     return
                                 }
@@ -108,7 +108,7 @@ class CardsViewController: UIViewController {
     func createLevel(cardPairsCount count: Int) {        
 //        FOR NOW FOR TESTING
         for index in 1...count {
-            let randomElementName = CardsViewController.elementNameForNumber![index]!
+            let randomElementName = Controller1stGame.elementNameForNumber![index]!
             if let nameImage = UIImage(named: randomElementName), let symbolImage = UIImage(named: "\(randomElementName)2") {
                 let nameCard = CardModel(element: randomElementName, image: nameImage)
                 let symbolCard = CardModel(element: randomElementName, image: symbolImage)
@@ -221,7 +221,7 @@ class CardsViewController: UIViewController {
 
 
 
-extension CardsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension Controller1stGame: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     // MARK: UICollectionViewDataSource
     
