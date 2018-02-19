@@ -15,7 +15,6 @@
 		76D43975202461AA00844DAE /* Controller1stGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D43974202461AA00844DAE /* Controller1stGame.swift */; };
 		76D439812024707C00844DAE /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D439802024707C00844DAE /* CardCell.swift */; };
 		76ECCA2E2039D36200D12D08 /* Controller2ndGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ECCA2C2039D36200D12D08 /* Controller2ndGame.swift */; };
-		76ECCA2F2039D36200D12D08 /* Model2ndGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ECCA2D2039D36200D12D08 /* Model2ndGame.swift */; };
 		B4CB3B022039DAC0003A61A5 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CB3B012039DAC0003A61A5 /* CardModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +29,6 @@
 		76D43974202461AA00844DAE /* Controller1stGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller1stGame.swift; sourceTree = "<group>"; };
 		76D439802024707C00844DAE /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		76ECCA2C2039D36200D12D08 /* Controller2ndGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller2ndGame.swift; sourceTree = "<group>"; };
-		76ECCA2D2039D36200D12D08 /* Model2ndGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model2ndGame.swift; sourceTree = "<group>"; };
 		B4CB3B012039DAC0003A61A5 /* CardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				76ECCA2C2039D36200D12D08 /* Controller2ndGame.swift */,
-				76ECCA2D2039D36200D12D08 /* Model2ndGame.swift */,
 			);
 			path = "2nd Game";
 			sourceTree = "<group>";
@@ -180,7 +177,6 @@
 				76D43975202461AA00844DAE /* Controller1stGame.swift in Sources */,
 				76D439502024580B00844DAE /* AppDelegate.swift in Sources */,
 				B4CB3B022039DAC0003A61A5 /* CardModel.swift in Sources */,
-				76ECCA2F2039D36200D12D08 /* Model2ndGame.swift in Sources */,
 				76D439812024707C00844DAE /* CardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
