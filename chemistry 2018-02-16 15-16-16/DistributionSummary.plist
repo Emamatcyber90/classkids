@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>chemistry.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>8684DC1F7AB66042C426319D477EEF166B447909</string>
+				<key>dateExpires</key>
+				<string>26/01/2019</string>
+				<key>type</key>
+				<string>iOS Development</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>GPZ2A8F47N.com.horcruxes.chemistry</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>GPZ2A8F47N</string>
+				<key>get-task-allow</key>
+				<true/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>GPZ2A8F47N.com.horcruxes.chemistry</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>chemistry.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>a1782bb4-1140-4d1e-9edd-a53f8ebdfb08</string>
+				<key>name</key>
+				<string>iOS Team Provisioning Profile: *</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>GPZ2A8F47N</string>
+				<key>name</key>
+				<string>Louis Debaere</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
