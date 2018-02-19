@@ -76,7 +76,8 @@ class Controller2ndGame: UIViewController {
                 print("Match")
                 }
             } else {
-//                present(failAlert, animated: true, completion: nil)       I get an error here, don't know y
+                print("fail")
+
             }
         }
     }
