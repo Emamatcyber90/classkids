@@ -44,29 +44,7 @@ class Controller1stGame: UIViewController {
         
         Controller1stGame.elementNameForNumber = setupElementNameForNumber()
         
-        for view in tableStackView.arrangedSubviews {
-            if let subStackView = view as? UIStackView {
-                for view in subStackView.arrangedSubviews {
-                    if let imageView = view as? UIImageView {
-                        guard let name = Controller1stGame.elementNameForNumber[view.tag] else {
-                            print("Invalid tag")
-                            return
-                        }
-                        imageView.image = UIImage(named: name)
-                    } else {
-                        for view in view.subviews {
-                            if let imageView = view as? UIImageView {
-                                guard let name = Controller1stGame.elementNameForNumber[view.tag] else {
-                                    print("Invalid tag")
-                                    return
-                                }
-                                imageView.image = UIImage(named: name)
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        setupPeriodicTableStackView()
         
         switch iPadModel {
         case "iPad":
@@ -77,7 +55,6 @@ class Controller1stGame: UIViewController {
             cellSide = 155
         }
         
-        
         // Start the level
         createLevel(cardPairsCount: 8)
         
@@ -87,6 +64,7 @@ class Controller1stGame: UIViewController {
     }
     
     func setupElementNameForNumber() -> [Int: String] {
+        
         var elementNameForNumber = [Int: String]()
         
         if let path = Bundle.main.path(forResource: "Elements", ofType: "plist") {
@@ -105,13 +83,44 @@ class Controller1stGame: UIViewController {
         return elementNameForNumber
     }
     
+    func setupPeriodicTableStackView() {
+        for view in tableStackView.arrangedSubviews {
+            if let subStackView = view as? UIStackView {
+                for view in subStackView.arrangedSubviews {
+                    if let imageView = view as? UIImageView {
+                        guard let name = Controller1stGame.elementNameForNumber[view.tag] else {
+                            print("Invalid tag")
+                            return
+                        }
+                        imageView.image = UIImage(named: name)
+                        //                        imageView.isHidden = true
+                        imageView.layer.borderWidth = 1
+                    } else {
+                        for view in view.subviews {
+                            if let imageView = view as? UIImageView {
+                                guard let name = Controller1stGame.elementNameForNumber[view.tag] else {
+                                    print("Invalid tag")
+                                    return
+                                }
+                                imageView.image = UIImage(named: name)
+                                //                                imageView.isHidden = true
+                                imageView.layer.borderWidth = 1
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     func createLevel(cardPairsCount count: Int) {        
 //        FOR NOW FOR TESTING
         for index in 1...count {
             let randomElementName = Controller1stGame.elementNameForNumber![index]!
             if let nameImage = UIImage(named: randomElementName), let symbolImage = UIImage(named: "\(randomElementName)2") {
-                let nameCard = CardModel(element: randomElementName, image: nameImage)
-                let symbolCard = CardModel(element: randomElementName, image: symbolImage)
+                let nameCard = CardModel(element: index, image: nameImage)
+                let symbolCard = CardModel(element: index, image: symbolImage)
                 level.append(nameCard)
                 level.append(symbolCard)
             } else {
@@ -156,6 +165,18 @@ class Controller1stGame: UIViewController {
                     
 
                     if currentCard.element == lastFlippedCard.element {
+                        // Highlight position in the table
+                        let elementImageView = self.tableStackView.viewWithTag(currentCard.element)!
+                        elementImageView.layer.isHidden = false
+                        UIView.animate(withDuration: 2, animations: {
+                            elementImageView.transform = CGAffineTransform(scaleX: 5, y: 5)
+                        })
+                        UIView.animate(withDuration: 1, delay: 2, options: [], animations: {
+                            elementImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+                        }, completion: nil)
+//                        UIView.animate(withDuration: 1, delay(1), animations: {
+//                            elementImageView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+//                        })
                         print("Elements MATCH")
                         self.isFlipped = false
                         self.matches += 1
@@ -218,8 +239,6 @@ class Controller1stGame: UIViewController {
     }
     
 }
-
-
 
 extension Controller1stGame: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     

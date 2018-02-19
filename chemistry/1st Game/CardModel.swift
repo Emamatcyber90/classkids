@@ -12,10 +12,10 @@ struct CardModel {
     
     var isFlipped = false
     
-    let element: String
+    let element: Int
     let image: UIImage
     
-    init(element: String, image: UIImage) {
+    init(element: Int, image: UIImage) {
         self.element = element
         self.image = image
     }

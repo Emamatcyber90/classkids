@@ -64,12 +64,12 @@
 		76D4394E2024580B00844DAE /* chemistry */ = {
 			isa = PBXGroup;
 			children = (
+				76D439532024580B00844DAE /* Main.storyboard */,
 				76D4396120245A9B00844DAE /* Supporting Files */,
 				B4A894AA203AC7FC0042F457 /* 1st Game */,
 				B4A894AB203AC80A0042F457 /* 2nd Game */,
 				765011C520319FDF0008A47F /* Elements.plist */,
 				76D4395B2024580B00844DAE /* Info.plist */,
-				76D439532024580B00844DAE /* Main.storyboard */,
 			);
 			path = chemistry;
 			sourceTree = "<group>";
