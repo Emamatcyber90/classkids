@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class Controller2ndGame: UIViewController {
 
     var tapCounter = 0
     @IBOutlet weak var targetLabel: UILabel!
