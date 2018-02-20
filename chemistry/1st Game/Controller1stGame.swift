@@ -181,7 +181,12 @@ class Controller1stGame: UIViewController {
                     
                     if currentCard.element == lastFlippedCard.element {
                         // Highlight position in the table
-                        let elementImageView = self.tableStackView.viewWithTag(currentCard.element)!
+                        let elementImageView: UIView
+                        if let imageView = self.tableStackView.viewWithTag(currentCard.element) {
+                            elementImageView = imageView
+                        } else {
+                            elementImageView = self.lathanidesActinidesStackView.viewWithTag(currentCard.element)!
+                        }
                         elementImageView.layer.isHidden = false
                         UIView.animate(withDuration: 2, animations: {
                             elementImageView.transform = CGAffineTransform(scaleX: 5, y: 5)
