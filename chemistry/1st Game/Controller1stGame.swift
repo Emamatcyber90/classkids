@@ -59,7 +59,7 @@ class Controller1stGame: UIViewController {
         }
         
         // Start the level
-        createLevel(cardPairsCount: 7)
+        createLevel(cardPairsCount: 10)
         
         widthCollectionView.constant = cellSide*6 + 20*5
         heightCollectionView.constant = cellSide*3 + 20*2
@@ -202,7 +202,7 @@ class Controller1stGame: UIViewController {
                         self.isFlipped = false
                         self.matches += 1
                         print(self.matches)
-                        if self.matches == 7 {
+                        if self.matches == 10 {
                             self.createLevel(cardPairsCount: 10)
                             self.matches = 0
                             cell.isUserInteractionEnabled = true
