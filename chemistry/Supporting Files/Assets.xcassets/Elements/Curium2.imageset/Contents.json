@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "Curium2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Curium2@2x.png",
       "scale" : "2x"
     },
     {
