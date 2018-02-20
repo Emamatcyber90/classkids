@@ -180,8 +180,8 @@ class Controller1stGame: UIViewController {
 //                print("Images not found")
 //            }
 //        }
-//        level.shuffle()
-//    }
+        level.shuffle()
+    }
     
     func cardSelected(cell: CardCell, index: IndexPath) {
         
