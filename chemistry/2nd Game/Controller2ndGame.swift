@@ -88,12 +88,16 @@ class Controller2ndGame: UIViewController {
         successAlert.addAction(successAction)
         failAlert.addAction(failAction)
         
-        if outputLabel.text! == Controller2ndGame.formulaDictionary[currentElementName!]! {
-            present(successAlert, animated: true, completion: nil)
-            print("Match")
-        } else {
-            present(failAlert, animated: true, completion: nil)
-            print("No Match")
+        for i in valuesArray.indices {
+            if outputLabel.text == valuesArray[i] {
+                if targetLabel.text == keysArray[i] {
+                    present(successAlert, animated: true, completion: nil)
+                print("Match")
+                }
+            } else {
+                print("fail")
+
+            }
         }
 
     }
