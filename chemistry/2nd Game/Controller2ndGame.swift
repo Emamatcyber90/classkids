@@ -88,18 +88,14 @@ class Controller2ndGame: UIViewController {
         successAlert.addAction(successAction)
         failAlert.addAction(failAction)
         
-        for i in valuesArray.indices {
-            if outputLabel.text == valuesArray[i] {
-                if targetLabel.text == keysArray[i] {
-                    present(successAlert, animated: true, completion: nil)
-                print("Match")
-                }
-            } else {
-                print("fail")
-
-            }
+        if outputLabel.text! == Controller2ndGame.formulaDictionary[currentElementName!]! {
+            present(successAlert, animated: true, completion: nil)
+            print("Match")
+        } else {
+            present(failAlert, animated: true, completion: nil)
+            print("No Match")
         }
-
+        
     }
     
     // display a new target and clear the user's inputs
