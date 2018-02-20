@@ -1018,6 +1018,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kzw-RR-R3Z">
+                                <rect key="frame" x="815" y="305" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Real lab"/>
+                                <connections>
+                                    <segue destination="1ei-SL-oSO" kind="show" id="41m-5W-bJ4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="gcP-Ce-55T"/>
@@ -1026,6 +1034,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rUo-uJ-DMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-671.484375" y="830.46875"/>
+        </scene>
+        <!--Lab-->
+        <scene sceneID="gzs-8j-Tyw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Lab" id="1ei-SL-oSO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wwv-em-MYD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="175" y="614"/>
         </scene>
         <!--Controller 2nd Game-->
         <scene sceneID="1oz-M0-VQL">
