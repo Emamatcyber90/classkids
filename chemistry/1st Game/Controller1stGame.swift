@@ -12,7 +12,7 @@ class Controller1stGame: UIViewController {
     
     static var elementNameForNumber: [Int: String]!
     
-    let backImage = #imageLiteral(resourceName: "back")
+    let backImage = UIImage(named: "Tile_Back")
     
     @IBOutlet weak var lathanidesActinidesStackView: UIStackView!
     @IBOutlet weak var tableStackView: UIStackView!
@@ -43,6 +43,7 @@ class Controller1stGame: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.backgroundColor = .clear
         Controller1stGame.elementNameForNumber = setupElementNameForNumber()
         
         setupOriginalTable()
@@ -211,6 +212,7 @@ class Controller1stGame: UIViewController {
                         UIView.animate(withDuration: 1, delay: 2, options: [], animations: {
                             elementImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
                         }, completion: nil)
+                        
                         //                        UIView.animate(withDuration: 1, delay(1), animations: {
                         //                            elementImageView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
                         //                        })
