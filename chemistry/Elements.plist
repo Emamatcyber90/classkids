@@ -38,7 +38,7 @@
 		<key>horizPos</key>
 		<integer>13</integer>
 		<key>name</key>
-		<string>Aluminum</string>
+		<string>Aluminium</string>
 		<key>period</key>
 		<integer>3</integer>
 		<key>radioactive</key>
@@ -470,7 +470,7 @@
 		<key>horizPos</key>
 		<integer>1</integer>
 		<key>name</key>
-		<string>Cesium</string>
+		<string>Caesium</string>
 		<key>period</key>
 		<integer>6</integer>
 		<key>radioactive</key>
@@ -2462,7 +2462,7 @@
 		<key>horizPos</key>
 		<integer>12</integer>
 		<key>name</key>
-		<string>Ununbium</string>
+		<string>Copernicium</string>
 		<key>period</key>
 		<integer>7</integer>
 		<key>radioactive</key>
@@ -2486,7 +2486,7 @@
 		<key>horizPos</key>
 		<integer>16</integer>
 		<key>name</key>
-		<string>Ununhexium</string>
+		<string>Livermorium</string>
 		<key>period</key>
 		<integer>7</integer>
 		<key>radioactive</key>
@@ -2510,7 +2510,7 @@
 		<key>horizPos</key>
 		<integer>10</integer>
 		<key>name</key>
-		<string>Ununnilium</string>
+		<string>Darmstadtium</string>
 		<key>period</key>
 		<integer>7</integer>
 		<key>radioactive</key>
@@ -2534,7 +2534,7 @@
 		<key>horizPos</key>
 		<string>18</string>
 		<key>name</key>
-		<string>Ununoctium</string>
+		<string>Oganesson</string>
 		<key>period</key>
 		<string>7</string>
 		<key>radioactive</key>
@@ -2558,7 +2558,7 @@
 		<key>horizPos</key>
 		<integer>15</integer>
 		<key>name</key>
-		<string>Ununpentium</string>
+		<string>Moscovium</string>
 		<key>period</key>
 		<integer>7</integer>
 		<key>radioactive</key>
@@ -2582,7 +2582,7 @@
 		<key>horizPos</key>
 		<integer>14</integer>
 		<key>name</key>
-		<string>Ununquadium</string>
+		<string>Flerovium</string>
 		<key>period</key>
 		<integer>7</integer>
 		<key>radioactive</key>
@@ -2606,7 +2606,7 @@
 		<key>horizPos</key>
 		<string>17</string>
 		<key>name</key>
-		<string>Ununseptium</string>
+		<string>Tennessine</string>
 		<key>period</key>
 		<string>7</string>
 		<key>radioactive</key>
@@ -2630,7 +2630,7 @@
 		<key>horizPos</key>
 		<string>13</string>
 		<key>name</key>
-		<string>Ununtrium</string>
+		<string>Nihonium</string>
 		<key>period</key>
 		<string>7</string>
 		<key>radioactive</key>
@@ -2654,7 +2654,7 @@
 		<key>horizPos</key>
 		<integer>11</integer>
 		<key>name</key>
-		<string>Unununium</string>
+		<string>Roentgenium</string>
 		<key>period</key>
 		<integer>7</integer>
 		<key>radioactive</key>

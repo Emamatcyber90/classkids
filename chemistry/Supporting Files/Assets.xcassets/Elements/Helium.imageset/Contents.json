@@ -2,17 +2,15 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "test one.png",
+      "filename" : "Helium.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "test one@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "test one@3x.png",
       "scale" : "3x"
     }
   ],

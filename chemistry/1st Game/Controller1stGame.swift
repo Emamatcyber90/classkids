@@ -96,7 +96,7 @@ class Controller1stGame: UIViewController {
                             return
                         }
                         imageView.image = UIImage(named: name)
-                        //                        imageView.isHidden = true
+//                                                imageView.isHidden = true
                         imageView.layer.borderWidth = 1
                     } else {
                         for view in view.subviews {
@@ -129,7 +129,7 @@ class Controller1stGame: UIViewController {
                             return
                         }
                         imageView.image = UIImage(named: name)
-                        //                        imageView.isHidden = true
+//                                                imageView.isHidden = true
                         imageView.layer.borderWidth = 1
                     } else {
                         for view in view.subviews {
@@ -139,7 +139,7 @@ class Controller1stGame: UIViewController {
                                     return
                                 }
                                 imageView.image = UIImage(named: name)
-                                //                                imageView.isHidden = true
+//                                                                imageView.isHidden = true
                                 imageView.layer.borderWidth = 1
                                 
                             } else {
