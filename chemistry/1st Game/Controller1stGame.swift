@@ -154,7 +154,7 @@ class Controller1stGame: UIViewController {
                 level.append(nameCard)
                 level.append(symbolCard)
             } else {
-                print("Images not found")
+                print("Images not found: \(randomElementName)")
             }
         }
         level.shuffle()
