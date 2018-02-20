@@ -59,7 +59,7 @@ class Controller1stGame: UIViewController {
         }
         
         // Start the level
-        createLevel(cardPairsCount: 8)
+        createLevel(cardPairsCount: 7)
         
         widthCollectionView.constant = cellSide*6 + 20*5
         heightCollectionView.constant = cellSide*3 + 20*2
@@ -97,7 +97,6 @@ class Controller1stGame: UIViewController {
                         }
                         imageView.image = UIImage(named: name)
 //                                                imageView.isHidden = true
-                        imageView.layer.borderWidth = 1
                     } else {
                         for view in view.subviews {
                             if let imageView = view as? UIImageView {
@@ -107,8 +106,6 @@ class Controller1stGame: UIViewController {
                                 }
                                 imageView.image = UIImage(named: name)
                                 //                                imageView.isHidden = true
-                                imageView.layer.borderWidth = 1
-                                
                             } else {
                                 print("test2")
                             }
@@ -129,8 +126,6 @@ class Controller1stGame: UIViewController {
                             return
                         }
                         imageView.image = UIImage(named: name)
-//                                                imageView.isHidden = true
-                        imageView.layer.borderWidth = 1
                     } else {
                         for view in view.subviews {
                             if let imageView = view as? UIImageView {
@@ -139,9 +134,6 @@ class Controller1stGame: UIViewController {
                                     return
                                 }
                                 imageView.image = UIImage(named: name)
-//                                                                imageView.isHidden = true
-                                imageView.layer.borderWidth = 1
-                                
                             } else {
                                 print("test2")
                             }
@@ -152,34 +144,19 @@ class Controller1stGame: UIViewController {
         }
     }
     
-    func createLevel(cardPairsCount count: Int) {        
-        //        FOR NOW FOR TESTING
-        for index in 1...count {
-            let randomElementName = Controller1stGame.elementNameForNumber![index]!
+    func createLevel(cardPairsCount count: Int) {
+        for _ in 0..<count {
+            let randomElementNumber = Int(arc4random_uniform(UInt32(Controller1stGame.elementNameForNumber!.count)))
+            let randomElementName = Controller1stGame.elementNameForNumber![randomElementNumber]!
             if let nameImage = UIImage(named: randomElementName), let symbolImage = UIImage(named: "\(randomElementName)2") {
-                let nameCard = CardModel(element: index, image: nameImage)
-                let symbolCard = CardModel(element: index, image: symbolImage)
+                let nameCard = CardModel(element: randomElementNumber, image: nameImage)
+                let symbolCard = CardModel(element: randomElementNumber, image: symbolImage)
                 level.append(nameCard)
                 level.append(symbolCard)
             } else {
                 print("Images not found")
             }
         }
-        
-        
-//        //        ACTUALLY ALL ELEMENTS @ALEX
-//        for _ in 0..<count {
-//            let randomElementNumber = Int(arc4random_uniform(UInt32(Controller1stGame.elementNameForNumber!.count)))
-//            let randomElementName = Controller1stGame.elementNameForNumber![randomElementNumber]!
-//            if let nameImage = UIImage(named: randomElementName), let symbolImage = UIImage(named: "\(randomElementName)2") {
-//                let nameCard = CardModel(element: randomElementNumber, image: nameImage)
-//                let symbolCard = CardModel(element: randomElementNumber, image: symbolImage)
-//                level.append(nameCard)
-//                level.append(symbolCard)
-//            } else {
-//                print("Images not found")
-//            }
-//        }
         level.shuffle()
     }
     
@@ -220,8 +197,8 @@ class Controller1stGame: UIViewController {
                         self.isFlipped = false
                         self.matches += 1
                         print(self.matches)
-                        if self.matches == 8 {
-                            self.createLevel(cardPairsCount: 8)
+                        if self.matches == 7 {
+                            self.createLevel(cardPairsCount: 10)
                             self.matches = 0
                             cell.isUserInteractionEnabled = true
                             for i in 0...15 {
