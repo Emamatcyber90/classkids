@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		498DE1FC203C1C5D0045D5C3 /* LabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498DE1FB203C1C5D0045D5C3 /* LabViewController.swift */; };
 		765011C620319FDF0008A47F /* Elements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 765011C520319FDF0008A47F /* Elements.plist */; };
-		769FC393203C0D5A00D76372 /* Lab.sks in Resources */ = {isa = PBXBuildFile; fileRef = 769FC392203C0D5A00D76372 /* Lab.sks */; };
+		769FC393203C0D5A00D76372 /* LabScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 769FC392203C0D5A00D76372 /* LabScene.sks */; };
 		769FC395203C0DFD00D76372 /* Lab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769FC394203C0DFD00D76372 /* Lab.storyboard */; };
 		769FC397203C1DCD00D76372 /* LabScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769FC396203C1DCD00D76372 /* LabScene.swift */; };
 		76D439502024580B00844DAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D4394F2024580B00844DAE /* AppDelegate.swift */; };
@@ -25,7 +25,7 @@
 /* Begin PBXFileReference section */
 		498DE1FB203C1C5D0045D5C3 /* LabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabViewController.swift; sourceTree = "<group>"; };
 		765011C520319FDF0008A47F /* Elements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Elements.plist; sourceTree = "<group>"; };
-		769FC392203C0D5A00D76372 /* Lab.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Lab.sks; sourceTree = "<group>"; };
+		769FC392203C0D5A00D76372 /* LabScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LabScene.sks; sourceTree = "<group>"; };
 		769FC394203C0DFD00D76372 /* Lab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lab.storyboard; sourceTree = "<group>"; };
 		769FC396203C1DCD00D76372 /* LabScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabScene.swift; sourceTree = "<group>"; };
 		76D4394C2024580B00844DAE /* chemistry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chemistry.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,7 +57,7 @@
 				769FC396203C1DCD00D76372 /* LabScene.swift */,
 				498DE1FB203C1C5D0045D5C3 /* LabViewController.swift */,
 				769FC394203C0DFD00D76372 /* Lab.storyboard */,
-				769FC392203C0D5A00D76372 /* Lab.sks */,
+				769FC392203C0D5A00D76372 /* LabScene.sks */,
 			);
 			path = Lab;
 			sourceTree = "<group>";
@@ -181,7 +181,7 @@
 			files = (
 				76D4395A2024580B00844DAE /* LaunchScreen.storyboard in Resources */,
 				76D439572024580B00844DAE /* Assets.xcassets in Resources */,
-				769FC393203C0D5A00D76372 /* Lab.sks in Resources */,
+				769FC393203C0D5A00D76372 /* LabScene.sks in Resources */,
 				76D439552024580B00844DAE /* Main.storyboard in Resources */,
 				769FC395203C0DFD00D76372 /* Lab.storyboard in Resources */,
 				765011C620319FDF0008A47F /* Elements.plist in Resources */,
