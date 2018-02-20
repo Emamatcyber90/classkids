@@ -14,12 +14,13 @@ class Controller1stGame: UIViewController {
     
     let backImage = #imageLiteral(resourceName: "back")
     
+    @IBOutlet weak var lathanidesActinidesStackView: UIStackView!
     @IBOutlet weak var tableStackView: UIStackView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var widthCollectionView: NSLayoutConstraint!
     @IBOutlet weak var heightCollectionView: NSLayoutConstraint!
     
-    var cellSide: CGFloat = 100
+    var cellSide: CGFloat = 85
     
     var level: [CardModel] = []
     var isFlipped = false
@@ -44,15 +45,16 @@ class Controller1stGame: UIViewController {
         
         Controller1stGame.elementNameForNumber = setupElementNameForNumber()
         
-        setupPeriodicTableStackView()
+        setupOriginalTable()
+        setupAdditionalTable()
         
         switch iPadModel {
         case "iPad":
-            cellSide = 100
+            cellSide = 85
         case "iPad Pro 10.5":
-            cellSide = 135
+            cellSide = 120
         default:
-            cellSide = 155
+            cellSide = 140
         }
         
         // Start the level
@@ -83,7 +85,7 @@ class Controller1stGame: UIViewController {
         return elementNameForNumber
     }
     
-    func setupPeriodicTableStackView() {
+    func setupOriginalTable() {
         for view in tableStackView.arrangedSubviews {
             if let subStackView = view as? UIStackView {
                 for view in subStackView.arrangedSubviews {
@@ -106,6 +108,41 @@ class Controller1stGame: UIViewController {
                                 //                                imageView.isHidden = true
                                 imageView.layer.borderWidth = 1
                                 
+                            } else {
+                                print("test2")
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func setupAdditionalTable() {
+        for view in lathanidesActinidesStackView.arrangedSubviews {
+            if let subStackView = view as? UIStackView {
+                for view in subStackView.arrangedSubviews {
+                    if let imageView = view as? UIImageView {
+                        guard let name = Controller1stGame.elementNameForNumber[view.tag] else {
+                            print("Invalid tag")
+                            return
+                        }
+                        imageView.image = UIImage(named: name)
+                        //                        imageView.isHidden = true
+                        imageView.layer.borderWidth = 1
+                    } else {
+                        for view in view.subviews {
+                            if let imageView = view as? UIImageView {
+                                guard let name = Controller1stGame.elementNameForNumber[view.tag] else {
+                                    print("Invalid tag")
+                                    return
+                                }
+                                imageView.image = UIImage(named: name)
+                                //                                imageView.isHidden = true
+                                imageView.layer.borderWidth = 1
+                                
+                            } else {
+                                print("test2")
                             }
                         }
                     }
@@ -115,7 +152,7 @@ class Controller1stGame: UIViewController {
     }
     
     func createLevel(cardPairsCount count: Int) {        
-//        FOR NOW FOR TESTING
+        //        FOR NOW FOR TESTING
         for index in 1...count {
             let randomElementName = Controller1stGame.elementNameForNumber![index]!
             if let nameImage = UIImage(named: randomElementName), let symbolImage = UIImage(named: "\(randomElementName)2") {
@@ -128,20 +165,20 @@ class Controller1stGame: UIViewController {
             }
         }
         
-
-//        ACTUALLY ALL ELEMENTS
-//        for _ in 0..<count {
-//            let randomElementNumber = Int(arc4random_uniform(UInt32(CardsViewController.elementNameForNumber!.count)))
-//            let randomElementName = CardsViewController.elementNameForNumber![randomElementNumber]!
-//            if let nameImage = UIImage(named: randomElementName), let symbolImage = UIImage(named: "\(randomElementName)2") {
-//                let nameCard = CardModel(element: randomElementName, image: nameImage)
-//                let symbolCard = CardModel(element: randomElementName, image: symbolImage)
-//                cards.append(nameCard)
-//                cards.append(symbolCard)
-//            } else {
-//                print("Images not found")
-//            }
-//        }
+        
+        //        ACTUALLY ALL ELEMENTS
+        //        for _ in 0..<count {
+        //            let randomElementNumber = Int(arc4random_uniform(UInt32(CardsViewController.elementNameForNumber!.count)))
+        //            let randomElementName = CardsViewController.elementNameForNumber![randomElementNumber]!
+        //            if let nameImage = UIImage(named: randomElementName), let symbolImage = UIImage(named: "\(randomElementName)2") {
+        //                let nameCard = CardModel(element: randomElementName, image: nameImage)
+        //                let symbolCard = CardModel(element: randomElementName, image: symbolImage)
+        //                cards.append(nameCard)
+        //                cards.append(symbolCard)
+        //            } else {
+        //                print("Images not found")
+        //            }
+        //        }
         level.shuffle()
     }
     
@@ -151,7 +188,7 @@ class Controller1stGame: UIViewController {
         
         if isFlipped {
             
-
+            
             if lastFlippedIndex != index.row {
                 
                 let currentCard = level[index.row]
@@ -163,7 +200,7 @@ class Controller1stGame: UIViewController {
                     cell.cardImage.image = currentCard.image
                 }, completion: {(_) in
                     
-
+                    
                     if currentCard.element == lastFlippedCard.element {
                         // Highlight position in the table
                         let elementImageView = self.tableStackView.viewWithTag(currentCard.element)!
@@ -174,9 +211,9 @@ class Controller1stGame: UIViewController {
                         UIView.animate(withDuration: 1, delay: 2, options: [], animations: {
                             elementImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
                         }, completion: nil)
-//                        UIView.animate(withDuration: 1, delay(1), animations: {
-//                            elementImageView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-//                        })
+                        //                        UIView.animate(withDuration: 1, delay(1), animations: {
+                        //                            elementImageView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+                        //                        })
                         print("Elements MATCH")
                         self.isFlipped = false
                         self.matches += 1
