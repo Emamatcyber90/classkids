@@ -20,13 +20,21 @@ class Controller1stGame: UIViewController {
     @IBOutlet weak var widthCollectionView: NSLayoutConstraint!
     @IBOutlet weak var heightCollectionView: NSLayoutConstraint!
     
-    var cellSide: CGFloat = 85
+    var cellSide: CGFloat {
+        switch iPadModel {
+        case "iPad":
+            return 85
+        case "iPad Pro 10.5":
+            return 120
+        default:
+            return 140
+        }
+    }
     
     var level: [CardModel] = []
     var isFlipped = false
     var lastFlippedIndex = -1
     var lastFlippedCell: CardCell?
-    var indexOfOnlyFacedUpCard: Int?
     var matches = 0
     
     var iPadModel: String {
@@ -49,14 +57,7 @@ class Controller1stGame: UIViewController {
         setupOriginalTable()
         setupAdditionalTable()
         
-        switch iPadModel {
-        case "iPad":
-            cellSide = 85
-        case "iPad Pro 10.5":
-            cellSide = 120
-        default:
-            cellSide = 140
-        }
+        
         
         // Start the level
         createLevel(cardPairsCount: 10)
@@ -144,11 +145,15 @@ class Controller1stGame: UIViewController {
         }
     }
     
+    func createRandomElementNumber() -> Int {
+        return Int(arc4random_uniform(UInt32(Controller1stGame.elementNameForNumber!.count)) + 1)
+    }
+    
     func createLevel(cardPairsCount count: Int) {
         
-        var i = 0
+        var i = 1
         while i < count {
-            let randomElementNumber = Int(arc4random_uniform(UInt32(Controller1stGame.elementNameForNumber!.count)) + 1)
+            let randomElementNumber = createRandomElementNumber()
             print(randomElementNumber)
             let randomElementName = Controller1stGame.elementNameForNumber![randomElementNumber]!
             if let nameImage = UIImage(named: randomElementName), let symbolImage = UIImage(named: "\(randomElementName)2") {
@@ -219,7 +224,7 @@ class Controller1stGame: UIViewController {
                         self.isFlipped = false
                         self.matches += 1
                         print(self.matches)
-                        if self.matches == 10 {
+                        if self.matches == 9 {
                             self.createLevel(cardPairsCount: 10)
                             self.matches = 0
                             cell.isUserInteractionEnabled = true
