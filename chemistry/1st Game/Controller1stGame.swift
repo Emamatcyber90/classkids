@@ -26,7 +26,6 @@ class Controller1stGame: UIViewController {
     var isFlipped = false
     var lastFlippedIndex = -1
     var lastFlippedCell: CardCell?
-    var indexOfOnlyFacedUpCard: Int?
     var matches = 0
     
     var iPadModel: String {
@@ -144,19 +143,40 @@ class Controller1stGame: UIViewController {
         }
     }
     
+    func createRandomElementNumber() -> Int {
+        return Int(arc4random_uniform(UInt32(Controller1stGame.elementNameForNumber!.count)) + 1)
+    }
+    
     func createLevel(cardPairsCount count: Int) {
-        for _ in 0..<count {
-            let randomElementNumber = Int(arc4random_uniform(UInt32(Controller1stGame.elementNameForNumber!.count)))
+        
+        var i = 1
+        while i < count {
+            let randomElementNumber = createRandomElementNumber()
+            print(randomElementNumber)
             let randomElementName = Controller1stGame.elementNameForNumber![randomElementNumber]!
             if let nameImage = UIImage(named: randomElementName), let symbolImage = UIImage(named: "\(randomElementName)2") {
                 let nameCard = CardModel(element: randomElementNumber, image: nameImage)
                 let symbolCard = CardModel(element: randomElementNumber, image: symbolImage)
                 level.append(nameCard)
                 level.append(symbolCard)
+                i += 1
             } else {
                 print("Images not found: \(randomElementName)")
             }
         }
+//        for _ in 1...count {
+//            let randomElementNumber = Int(arc4random_uniform(UInt32(Controller1stGame.elementNameForNumber!.count)))
+//            print(randomElementNumber)
+//            let randomElementName = Controller1stGame.elementNameForNumber![randomElementNumber]!
+//            if let nameImage = UIImage(named: randomElementName), let symbolImage = UIImage(named: "\(randomElementName)2") {
+//                let nameCard = CardModel(element: randomElementNumber, image: nameImage)
+//                let symbolCard = CardModel(element: randomElementNumber, image: symbolImage)
+//                level.append(nameCard)
+//                level.append(symbolCard)
+//            } else {
+//                print("Images not found: \(randomElementName)")
+//            }
+//        }
         level.shuffle()
     }
     
@@ -202,7 +222,7 @@ class Controller1stGame: UIViewController {
                         self.isFlipped = false
                         self.matches += 1
                         print(self.matches)
-                        if self.matches == 10 {
+                        if self.matches == 9 {
                             self.createLevel(cardPairsCount: 10)
                             self.matches = 0
                             cell.isUserInteractionEnabled = true
