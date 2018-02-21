@@ -145,7 +145,9 @@ class Controller1stGame: UIViewController {
     }
     
     func createLevel(cardPairsCount count: Int) {
-        for _ in 0..<count {
+        
+        var i = 0
+        while i < count {
             let randomElementNumber = Int(arc4random_uniform(UInt32(Controller1stGame.elementNameForNumber!.count)) + 1)
             print(randomElementNumber)
             let randomElementName = Controller1stGame.elementNameForNumber![randomElementNumber]!
@@ -154,10 +156,24 @@ class Controller1stGame: UIViewController {
                 let symbolCard = CardModel(element: randomElementNumber, image: symbolImage)
                 level.append(nameCard)
                 level.append(symbolCard)
+                i += 1
             } else {
                 print("Images not found: \(randomElementName)")
             }
         }
+//        for _ in 1...count {
+//            let randomElementNumber = Int(arc4random_uniform(UInt32(Controller1stGame.elementNameForNumber!.count)))
+//            print(randomElementNumber)
+//            let randomElementName = Controller1stGame.elementNameForNumber![randomElementNumber]!
+//            if let nameImage = UIImage(named: randomElementName), let symbolImage = UIImage(named: "\(randomElementName)2") {
+//                let nameCard = CardModel(element: randomElementNumber, image: nameImage)
+//                let symbolCard = CardModel(element: randomElementNumber, image: symbolImage)
+//                level.append(nameCard)
+//                level.append(symbolCard)
+//            } else {
+//                print("Images not found: \(randomElementName)")
+//            }
+//        }
         level.shuffle()
     }
     
