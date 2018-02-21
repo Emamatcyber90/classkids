@@ -10,6 +10,8 @@ import UIKit
 
 class Controller1stGame: UIViewController {
     
+    var elementsToGo = 0
+    
     static var elementNameForNumber: [Int: String]!
     
     let backImage = UIImage(named: "Tile_Back")
@@ -35,7 +37,6 @@ class Controller1stGame: UIViewController {
     var isFlipped = false
     var lastFlippedIndex = -1
     var lastFlippedCell: CardCell?
-    var matches = 0
     
     var iPadModel: String {
         let height = UIScreen.main.bounds.height
@@ -60,7 +61,7 @@ class Controller1stGame: UIViewController {
         
         
         // Start the level
-        createLevel(cardPairsCount: 10)
+        createLevel(cardPairsCount: 9)
         
         widthCollectionView.constant = cellSide*6 + 20*5
         heightCollectionView.constant = cellSide*3 + 20*2
@@ -151,9 +152,15 @@ class Controller1stGame: UIViewController {
     
     func createLevel(cardPairsCount count: Int) {
         
+        var alreadyInThere = [Int]()
+        
         var i = 1
-        while i < count {
-            let randomElementNumber = createRandomElementNumber()
+        while i <= count {
+            var randomElementNumber = createRandomElementNumber()
+            while alreadyInThere.contains(randomElementNumber) {
+                randomElementNumber = createRandomElementNumber()
+            }
+            alreadyInThere.append(randomElementNumber)
             print(randomElementNumber)
             let randomElementName = Controller1stGame.elementNameForNumber![randomElementNumber]!
             if let nameImage = UIImage(named: randomElementName), let symbolImage = UIImage(named: "\(randomElementName)2") {
@@ -179,6 +186,7 @@ class Controller1stGame: UIViewController {
 //                print("Images not found: \(randomElementName)")
 //            }
 //        }
+        elementsToGo = count
         level.shuffle()
     }
     
@@ -187,7 +195,6 @@ class Controller1stGame: UIViewController {
         // - the function enter in this if statement only when the user already touched a cell becouse "isFlipped" is true. The beginning of the game is at the end of the function, in the last "else" statement when "isFlipped" is not true.
         
         if isFlipped {
-            
             
             if lastFlippedIndex != index.row {
                 
@@ -202,6 +209,7 @@ class Controller1stGame: UIViewController {
                     
                     
                     if currentCard.element == lastFlippedCard.element {
+                        print("Elements MATCH")
                         // Highlight position in the table
                         let elementImageView: UIView
                         if let imageView = self.tableStackView.viewWithTag(currentCard.element) {
@@ -211,28 +219,25 @@ class Controller1stGame: UIViewController {
                         }
                         elementImageView.layer.isHidden = false
                         UIView.animate(withDuration: 2, animations: {
+                            elementImageView.layer.zPosition = CGFloat(self.level.count / 2 - self.elementsToGo) + 1
                             elementImageView.transform = CGAffineTransform(scaleX: 5, y: 5)
                         })
                         UIView.animate(withDuration: 1, delay: 2, options: [], animations: {
                             elementImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
                         }, completion: nil)
-                        
-                        //                        UIView.animate(withDuration: 1, delay(1), animations: {
-                        //                            elementImageView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-                        //                        })
-                        print("Elements MATCH")
                         self.isFlipped = false
-                        self.matches += 1
-                        print(self.matches)
-                        if self.matches == 9 {
-                            self.createLevel(cardPairsCount: 10)
-                            self.matches = 0
+                        self.elementsToGo -= 1
+                        print("Elements to go: " + String(self.elementsToGo))
+                        
+                        if self.elementsToGo <= 0 {
+                            self.createLevel(cardPairsCount: 9)
                             cell.isUserInteractionEnabled = true
                             for i in 0...15 {
                                 self.collectionView.cellForItem(at: IndexPath(row: i, section: 0))?.isUserInteractionEnabled = true
                             }
                             self.collectionView.reloadData()
                             self.collectionView.reloadInputViews()
+                            self.view.isUserInteractionEnabled = true
                             return
                         }
                         
