@@ -59,7 +59,7 @@ class Controller1stGame: UIViewController {
         }
         
         // Start the level
-        createLevel(cardPairsCount: 7)
+        createLevel(cardPairsCount: 10)
         
         widthCollectionView.constant = cellSide*6 + 20*5
         heightCollectionView.constant = cellSide*3 + 20*2
@@ -145,18 +145,35 @@ class Controller1stGame: UIViewController {
     }
     
     func createLevel(cardPairsCount count: Int) {
-        for _ in 0..<count {
-            let randomElementNumber = Int(arc4random_uniform(UInt32(Controller1stGame.elementNameForNumber!.count)))
+        
+        var i = 0
+        while i < count {
+            let randomElementNumber = Int(arc4random_uniform(UInt32(Controller1stGame.elementNameForNumber!.count)) + 1)
+            print(randomElementNumber)
             let randomElementName = Controller1stGame.elementNameForNumber![randomElementNumber]!
             if let nameImage = UIImage(named: randomElementName), let symbolImage = UIImage(named: "\(randomElementName)2") {
                 let nameCard = CardModel(element: randomElementNumber, image: nameImage)
                 let symbolCard = CardModel(element: randomElementNumber, image: symbolImage)
                 level.append(nameCard)
                 level.append(symbolCard)
+                i += 1
             } else {
-                print("Images not found")
+                print("Images not found: \(randomElementName)")
             }
         }
+//        for _ in 1...count {
+//            let randomElementNumber = Int(arc4random_uniform(UInt32(Controller1stGame.elementNameForNumber!.count)))
+//            print(randomElementNumber)
+//            let randomElementName = Controller1stGame.elementNameForNumber![randomElementNumber]!
+//            if let nameImage = UIImage(named: randomElementName), let symbolImage = UIImage(named: "\(randomElementName)2") {
+//                let nameCard = CardModel(element: randomElementNumber, image: nameImage)
+//                let symbolCard = CardModel(element: randomElementNumber, image: symbolImage)
+//                level.append(nameCard)
+//                level.append(symbolCard)
+//            } else {
+//                print("Images not found: \(randomElementName)")
+//            }
+//        }
         level.shuffle()
     }
     
@@ -181,7 +198,12 @@ class Controller1stGame: UIViewController {
                     
                     if currentCard.element == lastFlippedCard.element {
                         // Highlight position in the table
-                        let elementImageView = self.tableStackView.viewWithTag(currentCard.element)!
+                        let elementImageView: UIView
+                        if let imageView = self.tableStackView.viewWithTag(currentCard.element) {
+                            elementImageView = imageView
+                        } else {
+                            elementImageView = self.lathanidesActinidesStackView.viewWithTag(currentCard.element)!
+                        }
                         elementImageView.layer.isHidden = false
                         UIView.animate(withDuration: 2, animations: {
                             elementImageView.transform = CGAffineTransform(scaleX: 5, y: 5)
@@ -197,7 +219,7 @@ class Controller1stGame: UIViewController {
                         self.isFlipped = false
                         self.matches += 1
                         print(self.matches)
-                        if self.matches == 7 {
+                        if self.matches == 10 {
                             self.createLevel(cardPairsCount: 10)
                             self.matches = 0
                             cell.isUserInteractionEnabled = true

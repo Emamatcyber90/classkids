@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "Hassium2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Hassium2@2x.png",
       "scale" : "2x"
     },
     {
