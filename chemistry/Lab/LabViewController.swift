@@ -10,16 +10,17 @@ import UIKit
 import SpriteKit
 
 class LabViewController: UIViewController {
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "LabScene") {
+            if let scene = LabScene(fileNamed: "LabScene") {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
-                
+                // Setting self as the VC
+                scene.viewController = self
                 // Present the scene
                 view.presentScene(scene)
             }
