@@ -146,7 +146,8 @@ class Controller1stGame: UIViewController {
     
     func createLevel(cardPairsCount count: Int) {
         for _ in 0..<count {
-            let randomElementNumber = Int(arc4random_uniform(UInt32(Controller1stGame.elementNameForNumber!.count)))
+            let randomElementNumber = Int(arc4random_uniform(UInt32(Controller1stGame.elementNameForNumber!.count)) + 1)
+            print(randomElementNumber)
             let randomElementName = Controller1stGame.elementNameForNumber![randomElementNumber]!
             if let nameImage = UIImage(named: randomElementName), let symbolImage = UIImage(named: "\(randomElementName)2") {
                 let nameCard = CardModel(element: randomElementNumber, image: nameImage)
