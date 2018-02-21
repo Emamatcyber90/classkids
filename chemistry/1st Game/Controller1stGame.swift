@@ -20,7 +20,16 @@ class Controller1stGame: UIViewController {
     @IBOutlet weak var widthCollectionView: NSLayoutConstraint!
     @IBOutlet weak var heightCollectionView: NSLayoutConstraint!
     
-    var cellSide: CGFloat = 85
+    var cellSide: CGFloat {
+        switch iPadModel {
+        case "iPad":
+            return 85
+        case "iPad Pro 10.5":
+            return 120
+        default:
+            return 140
+        }
+    }
     
     var level: [CardModel] = []
     var isFlipped = false
@@ -48,14 +57,7 @@ class Controller1stGame: UIViewController {
         setupOriginalTable()
         setupAdditionalTable()
         
-        switch iPadModel {
-        case "iPad":
-            cellSide = 85
-        case "iPad Pro 10.5":
-            cellSide = 120
-        default:
-            cellSide = 140
-        }
+        
         
         // Start the level
         createLevel(cardPairsCount: 10)

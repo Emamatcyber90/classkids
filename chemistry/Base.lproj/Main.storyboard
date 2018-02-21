@@ -1584,21 +1584,49 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="42j-T0-wr6">
-                                <rect key="frame" x="420" y="326.5" width="527" height="391"/>
+                                <rect key="frame" x="419.5" y="326.5" width="527" height="391"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="527" id="4ib-A8-dEX"/>
                                     <constraint firstAttribute="height" constant="391" id="NRh-FJ-Lah"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O18-XT-RcU">
-                                <rect key="frame" x="605" y="170" width="157" height="377"/>
+                                <rect key="frame" x="604.5" y="170" width="157" height="377"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="157" id="2wK-HA-ZWy"/>
                                     <constraint firstAttribute="height" constant="377" id="xxc-fs-ZgB"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQR-iU-iY9">
+                                <rect key="frame" x="100" y="789" width="106" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.098777500784434258" blue="0.77831468356057432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <state key="normal" title="S"/>
+                                <connections>
+                                    <action selector="skipLevel:" destination="g16-BF-UlD" eventType="touchUpInside" id="Xnb-Ws-T81"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3l-Kj-Nph">
+                                <rect key="frame" x="1233" y="387" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="showTable:" destination="g16-BF-UlD" eventType="touchUpInside" id="6nZ-Eb-0Z7"/>
+                                </connections>
+                            </button>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hqT-Jj-YzC">
+                                <rect key="frame" x="631" y="484" width="105" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.59339815380000005" green="0.84884315730000004" blue="0.98433762790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ixD-WH-oR7" appends="YES" id="lxE-80-SMH"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.97239416837692261" green="0.99330049753189087" blue="0.90194743871688843" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Ajl-1S-p7o" firstAttribute="centerX" secondItem="rkb-lx-ZTN" secondAttribute="centerX" id="EvL-F6-U6i"/>
                             <constraint firstItem="42j-T0-wr6" firstAttribute="centerY" secondItem="rkb-lx-ZTN" secondAttribute="centerY" id="Jad-xu-1kc"/>
@@ -1618,12 +1646,16 @@
                             <constraint firstItem="rkb-lx-ZTN" firstAttribute="bottom" secondItem="qUB-Tq-6yT" secondAttribute="bottom" constant="20" id="qJJ-pN-1Vb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rkb-lx-ZTN"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="T3K-2P-Xwg" appends="YES" id="IVR-f8-oBs"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="failingAnim" destination="42j-T0-wr6" id="iEj-YN-SvV"/>
                         <outlet property="match" destination="Erm-Rn-W43" id="kBq-Oh-p5a"/>
                         <outlet property="matchSucces" destination="O18-XT-RcU" id="8UD-UY-PA6"/>
                         <outlet property="outputLabel" destination="Kqp-47-yN4" id="MUN-DT-SM2"/>
+                        <outlet property="periodicTable" destination="hqT-Jj-YzC" id="xJM-47-SPt"/>
                         <outlet property="targetLabel" destination="dd7-El-UMJ" id="0EU-Zh-IMW"/>
                         <outletCollection property="buttons" destination="kcp-Lc-2N9" collectionClass="NSMutableArray" id="CE5-L1-Fo9"/>
                         <outletCollection property="buttons" destination="weL-lS-H6B" collectionClass="NSMutableArray" id="Frh-qe-XyY"/>
@@ -1658,6 +1690,17 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dy9-By-8ev" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ixD-WH-oR7" userLabel="Tap Gesture IN">
+                    <connections>
+                        <action selector="changeTable:" destination="g16-BF-UlD" id="TQ4-H5-DhI"/>
+                        <outlet property="delegate" destination="hqT-Jj-YzC" id="Wgh-QD-fe2"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="T3K-2P-Xwg" userLabel="Tap Gesture Out">
+                    <connections>
+                        <action selector="hideTable:" destination="g16-BF-UlD" id="2de-1a-1Oi"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-419.91215226939966" y="-252.53906249999997"/>
         </scene>
@@ -1673,31 +1716,31 @@
         <image name="7" width="1180" height="1180"/>
         <image name="8" width="1180" height="1180"/>
         <image name="9" width="1180" height="1180"/>
-        <image name="Arsenic" width="3540" height="3540"/>
-        <image name="Bromine" width="3540" height="3540"/>
-        <image name="Calcium" width="3540" height="3540"/>
-        <image name="Carbon" width="3540" height="3540"/>
-        <image name="Chlorine" width="3540" height="3540"/>
+        <image name="Arsenic" width="600" height="600"/>
+        <image name="Bromine" width="600" height="600"/>
+        <image name="Calcium" width="600" height="600"/>
+        <image name="Carbon" width="600" height="600"/>
+        <image name="Chlorine" width="600" height="600"/>
         <image name="Clear Button_Horizontal" width="1956" height="1179"/>
-        <image name="Copper" width="3540" height="3540"/>
+        <image name="Copper" width="600" height="600"/>
         <image name="DeepGreen" width="33" height="33"/>
         <image name="Done Button" width="1179" height="1956"/>
         <image name="Exit" width="65" height="64"/>
-        <image name="Fluorine" width="3540" height="3540"/>
-        <image name="Gold" width="3540" height="3540"/>
-        <image name="Hydrogen" width="3540" height="3540"/>
-        <image name="Iodine" width="3540" height="3540"/>
-        <image name="Magnesium" width="3540" height="3540"/>
-        <image name="Nitrogen" width="3540" height="3540"/>
-        <image name="Oxygen" width="3540" height="3540"/>
-        <image name="Phosphorus" width="3540" height="3540"/>
+        <image name="Fluorine" width="600" height="600"/>
+        <image name="Gold" width="600" height="600"/>
+        <image name="Hydrogen" width="600" height="600"/>
+        <image name="Iodine" width="600" height="600"/>
+        <image name="Magnesium" width="600" height="600"/>
+        <image name="Nitrogen" width="600" height="600"/>
+        <image name="Oxygen" width="600" height="600"/>
+        <image name="Phosphorus" width="600" height="600"/>
         <image name="Purple shit" width="441" height="505"/>
-        <image name="Silver" width="3540" height="3540"/>
-        <image name="Sodium" width="3540" height="3540"/>
-        <image name="Sulfur" width="3540" height="3540"/>
-        <image name="Tin" width="3540" height="3540"/>
-        <image name="Titanium" width="3540" height="3540"/>
-        <image name="Zinc" width="3540" height="3540"/>
+        <image name="Silver" width="600" height="600"/>
+        <image name="Sodium" width="600" height="600"/>
+        <image name="Sulfur" width="600" height="600"/>
+        <image name="Tin" width="600" height="600"/>
+        <image name="Titanium" width="600" height="600"/>
+        <image name="Zinc" width="600" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="JOH-4K-FfF"/>
