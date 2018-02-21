@@ -202,6 +202,7 @@ class Controller1stGame: UIViewController {
                     
                     
                     if currentCard.element == lastFlippedCard.element {
+                        print("Elements MATCH")
                         // Highlight position in the table
                         let elementImageView: UIView
                         if let imageView = self.tableStackView.viewWithTag(currentCard.element) {
@@ -210,17 +211,14 @@ class Controller1stGame: UIViewController {
                             elementImageView = self.lathanidesActinidesStackView.viewWithTag(currentCard.element)!
                         }
                         elementImageView.layer.isHidden = false
+                        elementImageView.layer.zPosition = 1
                         UIView.animate(withDuration: 2, animations: {
                             elementImageView.transform = CGAffineTransform(scaleX: 5, y: 5)
                         })
                         UIView.animate(withDuration: 1, delay: 2, options: [], animations: {
                             elementImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
                         }, completion: nil)
-                        
-                        //                        UIView.animate(withDuration: 1, delay(1), animations: {
-                        //                            elementImageView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-                        //                        })
-                        print("Elements MATCH")
+
                         self.isFlipped = false
                         self.matches += 1
                         print(self.matches)
