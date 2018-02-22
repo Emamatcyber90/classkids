@@ -20,6 +20,7 @@
 		76ECCA2E2039D36200D12D08 /* Controller2ndGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ECCA2C2039D36200D12D08 /* Controller2ndGame.swift */; };
 		B48FB69F203EFC5900BAC375 /* Bubbles.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B48FB69D203EFC5800BAC375 /* Bubbles.mp3 */; };
 		B48FB6A0203EFC5900BAC375 /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B48FB69E203EFC5900BAC375 /* explosion.mp3 */; };
+		B4AD6E27203F7408005775A2 /* shuffle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B4AD6E26203F7408005775A2 /* shuffle.mp3 */; };
 		B4CB3B022039DAC0003A61A5 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CB3B012039DAC0003A61A5 /* CardModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		76ECCA2C2039D36200D12D08 /* Controller2ndGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller2ndGame.swift; sourceTree = "<group>"; };
 		B48FB69D203EFC5800BAC375 /* Bubbles.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bubbles.mp3; sourceTree = "<group>"; };
 		B48FB69E203EFC5900BAC375 /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
+		B4AD6E26203F7408005775A2 /* shuffle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shuffle.mp3; sourceTree = "<group>"; };
 		B4CB3B012039DAC0003A61A5 /* CardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,8 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				76D439532024580B00844DAE /* Main.storyboard */,
-				B48FB69D203EFC5800BAC375 /* Bubbles.mp3 */,
-				B48FB69E203EFC5900BAC375 /* explosion.mp3 */,
+				B4AD6E23203F6B97005775A2 /* Sounds */,
 				769FC391203C0D3F00D76372 /* Lab */,
 				B4A894AA203AC7FC0042F457 /* 1st Game */,
 				B4A894AB203AC80A0042F457 /* 2nd Game */,
@@ -121,6 +122,16 @@
 				76ECCA2C2039D36200D12D08 /* Controller2ndGame.swift */,
 			);
 			path = "2nd Game";
+			sourceTree = "<group>";
+		};
+		B4AD6E23203F6B97005775A2 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				B4AD6E26203F7408005775A2 /* shuffle.mp3 */,
+				B48FB69D203EFC5800BAC375 /* Bubbles.mp3 */,
+				B48FB69E203EFC5900BAC375 /* explosion.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +199,7 @@
 				76D439552024580B00844DAE /* Main.storyboard in Resources */,
 				B48FB6A0203EFC5900BAC375 /* explosion.mp3 in Resources */,
 				B48FB69F203EFC5900BAC375 /* Bubbles.mp3 in Resources */,
+				B4AD6E27203F7408005775A2 /* shuffle.mp3 in Resources */,
 				765011C620319FDF0008A47F /* Elements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

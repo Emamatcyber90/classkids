@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import AVFoundation
 
 class Controller1stGame: UIViewController {
+    var player: AVAudioPlayer?
     
     var elementsToGo = 0
     
@@ -216,6 +218,7 @@ class Controller1stGame: UIViewController {
                     
                     
                     if currentCard.element == lastFlippedCard.element {
+//                        matchingSound()
                         print("Elements MATCH")
                         // Highlight position in the table
                         var imagePath = ""
@@ -246,6 +249,7 @@ class Controller1stGame: UIViewController {
                         print("Elements to go: " + String(self.elementsToGo))
                         
                         if self.elementsToGo <= 0 {
+//                            self.shuffleSound()
                             self.createLevel(cardPairsCount: 9)
                             for i in 0...15 {
                                 self.collectionView.cellForItem(at: IndexPath(row: i, section: 0))?.isUserInteractionEnabled = true
@@ -303,6 +307,31 @@ class Controller1stGame: UIViewController {
         }, completion: completion)
     }
     
+    
+    // Sounds functions
+//    func matchingSound() {
+//        let sound = Bundle.main.url(forResource: <#T##String?#>, withExtension: <#T##String?#>)
+//        do {
+//            player = try AVAudioPlayer(contentsOf: sound!)
+//            guard let player = player else {return}
+//            player.prepareToPlay()
+//            player.play()
+//        } catch let error {
+//            print(error.localizedDescription)
+//        }
+//    }
+    
+//    func shuffleSound() {
+//        let sound = Bundle.main.url(forResource: "shuffle", withExtension: "mp3")
+//        do {
+//            player = try AVAudioPlayer(contentsOf: sound!)
+//            guard let player = player else {return}
+//            player.prepareToPlay()
+//            player.play()
+//        } catch let error {
+//            print(error.localizedDescription)
+//        }
+//    }
 }
 
 extension Controller1stGame: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
