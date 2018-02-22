@@ -235,7 +235,7 @@ class Controller1stGame: UIViewController {
                         self.elementsToGo -= 1
                         print("Elements to go: " + String(self.elementsToGo))
                         
-                        if self.elementsToGo <= 0 {
+                        if self.elementsToGo >= 0 {
                             self.createLevel(cardPairsCount: 9)
                             cell.isUserInteractionEnabled = true
                             for i in 0...15 {
@@ -244,6 +244,8 @@ class Controller1stGame: UIViewController {
                             self.collectionView.reloadData()
                             self.collectionView.reloadInputViews()
                             self.view.isUserInteractionEnabled = true
+                            cell.isUserInteractionEnabled = true
+                            self.lastFlippedCell?.isUserInteractionEnabled = true
                             return
                         }
                         
