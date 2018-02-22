@@ -247,7 +247,6 @@ class Controller1stGame: UIViewController {
                         
                         if self.elementsToGo <= 0 {
                             self.createLevel(cardPairsCount: 9)
-                            cell.isUserInteractionEnabled = true
                             for i in 0...15 {
                                 self.collectionView.cellForItem(at: IndexPath(row: i, section: 0))?.isUserInteractionEnabled = true
                             }
