@@ -1021,6 +1021,9 @@
                                     <constraint firstAttribute="height" constant="160" id="GnP-kZ-VyI"/>
                                 </constraints>
                             </imageView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y5s-h4-1ce">
+                                <rect key="frame" x="940" y="303" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="0.90216243267059326" green="0.94440388679504395" blue="0.99216526746749878" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -1029,7 +1032,9 @@
                             <constraint firstItem="2Tq-Wg-DGX" firstAttribute="top" secondItem="1oT-96-kbF" secondAttribute="top" constant="40" id="DRv-uw-INA"/>
                             <constraint firstItem="bc4-xM-c01" firstAttribute="centerX" secondItem="1oT-96-kbF" secondAttribute="centerX" id="QCf-Sq-6b7"/>
                             <constraint firstItem="9Og-5i-hoD" firstAttribute="bottom" secondItem="bc4-xM-c01" secondAttribute="bottom" constant="20" id="Rmg-zd-re5"/>
+                            <constraint firstItem="y5s-h4-1ce" firstAttribute="top" secondItem="yc5-YA-5Fa" secondAttribute="bottom" constant="73" id="Xjp-Dt-kWj"/>
                             <constraint firstItem="r9F-rP-Kpk" firstAttribute="top" secondItem="9Og-5i-hoD" secondAttribute="top" constant="50" id="cRt-Z9-qUH"/>
+                            <constraint firstItem="y5s-h4-1ce" firstAttribute="leading" secondItem="Ahe-vZ-peg" secondAttribute="trailing" constant="250" id="kdz-6O-HZY"/>
                             <constraint firstItem="DJw-yo-xh2" firstAttribute="leading" secondItem="9Og-5i-hoD" secondAttribute="leading" constant="270" id="m4e-cM-8I7"/>
                             <constraint firstItem="DJw-yo-xh2" firstAttribute="top" secondItem="r9F-rP-Kpk" secondAttribute="bottom" constant="8" id="mcv-kx-b19"/>
                             <constraint firstItem="9Og-5i-hoD" firstAttribute="trailing" secondItem="2Tq-Wg-DGX" secondAttribute="trailing" constant="70" id="rmN-J5-gFX"/>
@@ -1040,6 +1045,7 @@
                     <connections>
                         <outlet property="collectionView" destination="bc4-xM-c01" id="dHH-hx-d2r"/>
                         <outlet property="heightCollectionView" destination="w87-Yo-f3k" id="Axg-LW-6AT"/>
+                        <outlet property="iconSwitch" destination="y5s-h4-1ce" id="dkx-R4-ouj"/>
                         <outlet property="lathanidesActinidesStackView" destination="DJw-yo-xh2" id="aqR-E9-LN8"/>
                         <outlet property="tableStackView" destination="r9F-rP-Kpk" id="9at-fb-Oyt"/>
                         <outlet property="widthCollectionView" destination="ce9-jb-jFg" id="xaP-dO-5jD"/>
@@ -1655,7 +1661,6 @@
         <image name="Chlorine" width="600" height="600"/>
         <image name="Clear Button" width="68" height="68"/>
         <image name="Copper" width="600" height="600"/>
-        <image name="DeepGreen" width="33" height="33"/>
         <image name="Done Button" width="68" height="68"/>
         <image name="Exit" width="65" height="64"/>
         <image name="Fluorine" width="600" height="600"/>
@@ -1679,6 +1684,6 @@
         <image name="Zinc" width="600" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="32K-DG-Wi6"/>
+        <segue reference="lgc-jb-9H8"/>
     </inferredMetricsTieBreakers>
 </document>

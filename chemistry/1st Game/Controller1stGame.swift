@@ -16,6 +16,7 @@ class Controller1stGame: UIViewController {
     
     let backImage = UIImage(named: "Tile_Back")
     
+    @IBOutlet weak var iconSwitch: UISwitch!
     @IBOutlet weak var lathanidesActinidesStackView: UIStackView!
     @IBOutlet weak var tableStackView: UIStackView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -65,6 +66,7 @@ class Controller1stGame: UIViewController {
         
         widthCollectionView.constant = cellSide*6 + 20*5
         heightCollectionView.constant = cellSide*3 + 20*2
+        
         
     }
     
@@ -153,6 +155,8 @@ class Controller1stGame: UIViewController {
     
     func createLevel(cardPairsCount count: Int) {
         
+        self.iconSwitch.isEnabled = true
+        
         var alreadyInThere = [Int]()
         
         var i = 1
@@ -193,6 +197,8 @@ class Controller1stGame: UIViewController {
     
     func cardSelected(cell: CardCell, index: IndexPath) {
         
+        self.iconSwitch.isEnabled = false
+        
         // - the function enter in this if statement only when the user already touched a cell becouse "isFlipped" is true. The beginning of the game is at the end of the function, in the last "else" statement when "isFlipped" is not true.
         
         if isFlipped {
@@ -212,14 +218,18 @@ class Controller1stGame: UIViewController {
                     if currentCard.element == lastFlippedCard.element {
                         print("Elements MATCH")
                         // Highlight position in the table
+                        var imagePath = ""
+                        if self.iconSwitch.isOn {
+                            imagePath = "2"
+                        }
                         let elementImageView: UIImageView
                         if let imageView = self.tableStackView.viewWithTag(currentCard.element) {
                             elementImageView = imageView as! UIImageView
-                            elementImageView.image = UIImage(named: Controller1stGame.elementNameForNumber[elementImageView.tag]!)
+                            elementImageView.image = UIImage(named: Controller1stGame.elementNameForNumber[elementImageView.tag]! + imagePath)
                             
                         } else {
                             elementImageView = self.lathanidesActinidesStackView.viewWithTag(currentCard.element)! as! UIImageView
-                            elementImageView.image = UIImage(named: Controller1stGame.elementNameForNumber[elementImageView.tag]!)
+                            elementImageView.image = UIImage(named: Controller1stGame.elementNameForNumber[elementImageView.tag]! + imagePath)
 
                         }
                         
@@ -235,7 +245,7 @@ class Controller1stGame: UIViewController {
                         self.elementsToGo -= 1
                         print("Elements to go: " + String(self.elementsToGo))
                         
-                        if self.elementsToGo >= 0 {
+                        if self.elementsToGo <= 0 {
                             self.createLevel(cardPairsCount: 9)
                             cell.isUserInteractionEnabled = true
                             for i in 0...15 {
