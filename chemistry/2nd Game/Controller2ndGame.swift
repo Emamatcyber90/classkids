@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import AVFoundation
 
 class Controller2ndGame: UIViewController {
-    
+    var player: AVAudioPlayer?
     
     @IBOutlet weak var failingAnim: UIImageView!
     @IBOutlet weak var matchSucces: UIImageView!
@@ -127,14 +128,12 @@ class Controller2ndGame: UIViewController {
 //        failAlert.addAction(failAction)
         
         if outputLabel.text! == Controller2ndGame.formulaDictionary[currentElementName!]! {
-//            present(successAlert, animated: true, completion: nil)
+            bubbleSound()
             matchSucces.animationRepeatCount = 1
             matchSucces.startAnimating()
             nextLevel()
         } else {
-//            present(failAlert, animated: true, completion: nil)
-//            print("No Match")
-            
+            explosionSound()
             failingAnim.animationRepeatCount = 1
             failingAnim.startAnimating()
         }
@@ -146,6 +145,30 @@ class Controller2ndGame: UIViewController {
         let elementCount = UInt32(Controller2ndGame.formulaDictionary.count)
         let randomIndex = Int(arc4random_uniform(elementCount))
         currentElementName = Array(Controller2ndGame.formulaDictionary.keys)[randomIndex]
+    }
+    
+    func bubbleSound() {
+        let sound = Bundle.main.url(forResource: "Bubbles", withExtension: "mp3")
+        do {
+            player = try AVAudioPlayer(contentsOf: sound!)
+            guard let player = player else {return}
+            player.prepareToPlay()
+            player.play()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func explosionSound() {
+        let sound = Bundle.main.url(forResource: "explosion", withExtension: "mp3")
+        do {
+            player = try AVAudioPlayer(contentsOf: sound!)
+            guard let player = player else {return}
+            player.prepareToPlay()
+            player.play()
+        } catch let error {
+            print(error.localizedDescription)
+        }
     }
     
     override func viewDidLoad() {
