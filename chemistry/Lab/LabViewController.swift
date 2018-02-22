@@ -25,8 +25,8 @@ class LabViewController: UIViewController {
                 view.presentScene(scene)
             }
             view.ignoresSiblingOrder = false
-            view.showsFPS = true
-            view.showsNodeCount = true
+//            view.showsFPS = true
+//            view.showsNodeCount = true
         }
     }
 }
