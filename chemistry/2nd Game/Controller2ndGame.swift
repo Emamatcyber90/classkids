@@ -48,6 +48,30 @@ class Controller2ndGame: UIViewController {
     @IBOutlet var buttons: [UIButton]!
     
     
+    var flaconSize: CGFloat {
+        switch iPadModel {
+        case "iPad":
+            return 85
+        case "iPad Pro 10.5":
+            return 120
+        default:
+            return 140
+        }
+    }
+    
+    
+    var iPadModel: String {
+        let height = UIScreen.main.bounds.height
+        if height == 768 {
+            return "iPad"
+        } else if height == 834 {
+            return "iPad Pro 10.5"
+        } else {
+            return "iPad Pro 12.9"
+        }
+    }
+    
+    
     @IBAction func elementTap(_ sender: UIButton) {
         tapCounter += 1
         print("Number of Taps: \(tapCounter)")
@@ -91,7 +115,7 @@ class Controller2ndGame: UIViewController {
             periodicTable.image = UIImage(named: "Tab1")
             touched = true
         } else{
-            periodicTable.backgroundColor = UIColor(red: 151.0, green: 216.0, blue: 251.0, alpha: 1)
+            periodicTable.image = UIImage(named: "Tab2")
             touched = false
         }
     }
