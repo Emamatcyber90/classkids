@@ -55,8 +55,8 @@ class Controller1stGame: UIViewController {
         collectionView.backgroundColor = .clear
         Controller1stGame.elementNameForNumber = setupElementNameForNumber()
         
-        setupOriginalTable()
-        setupAdditionalTable()
+//        setupOriginalTable()
+//        setupAdditionalTable()
         
         
         
@@ -97,8 +97,9 @@ class Controller1stGame: UIViewController {
                             print("Invalid tag")
                             return
                         }
+                        
                         imageView.image = UIImage(named: name)
-//                                                imageView.isHidden = true
+                                                imageView.isHidden = true
                     } else {
                         for view in view.subviews {
                             if let imageView = view as? UIImageView {
@@ -211,12 +212,17 @@ class Controller1stGame: UIViewController {
                     if currentCard.element == lastFlippedCard.element {
                         print("Elements MATCH")
                         // Highlight position in the table
-                        let elementImageView: UIView
+                        let elementImageView: UIImageView
                         if let imageView = self.tableStackView.viewWithTag(currentCard.element) {
-                            elementImageView = imageView
+                            elementImageView = imageView as! UIImageView
+                            elementImageView.image = UIImage(named: Controller1stGame.elementNameForNumber[elementImageView.tag]!)
+                            
                         } else {
-                            elementImageView = self.lathanidesActinidesStackView.viewWithTag(currentCard.element)!
+                            elementImageView = self.lathanidesActinidesStackView.viewWithTag(currentCard.element)! as! UIImageView
+                            elementImageView.image = UIImage(named: Controller1stGame.elementNameForNumber[elementImageView.tag]!)
+
                         }
+                        
                         elementImageView.layer.isHidden = false
                         UIView.animate(withDuration: 2, animations: {
                             elementImageView.layer.zPosition = CGFloat(self.level.count / 2 - self.elementsToGo) + 1
@@ -229,7 +235,7 @@ class Controller1stGame: UIViewController {
                         self.elementsToGo -= 1
                         print("Elements to go: " + String(self.elementsToGo))
                         
-                        if self.elementsToGo <= 0 {
+                        if self.elementsToGo >= 0 {
                             self.createLevel(cardPairsCount: 9)
                             cell.isUserInteractionEnabled = true
                             for i in 0...15 {
@@ -238,6 +244,8 @@ class Controller1stGame: UIViewController {
                             self.collectionView.reloadData()
                             self.collectionView.reloadInputViews()
                             self.view.isUserInteractionEnabled = true
+                            cell.isUserInteractionEnabled = true
+                            self.lastFlippedCell?.isUserInteractionEnabled = true
                             return
                         }
                         
