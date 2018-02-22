@@ -107,7 +107,7 @@ class Controller2ndGame: UIViewController {
     @IBAction func showTable(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5, animations: {
             self.periodicTable.isHidden = false
-            self.periodicTable.transform = CGAffineTransform(scaleX: 10, y: 10)
+            self.periodicTable.transform = CGAffineTransform(scaleX: 8, y: 8)
             })
     }
     
@@ -153,6 +153,7 @@ class Controller2ndGame: UIViewController {
         
         if outputLabel.text! == Controller2ndGame.formulaDictionary[currentElementName!]! {
             bubbleSound()
+            matchSucces.animationDuration = 1
             matchSucces.animationRepeatCount = 1
             matchSucces.startAnimating()
             nextLevel()
