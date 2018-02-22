@@ -1014,24 +1014,24 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Legenda2" translatesAutoresizingMaskIntoConstraints="NO" id="yc5-YA-5Fa">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Legenda2" translatesAutoresizingMaskIntoConstraints="NO" id="yc5-YA-5Fa">
                                 <rect key="frame" x="801" y="70" width="280" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="YoO-QJ-fh0"/>
                                     <constraint firstAttribute="width" constant="280" id="cJt-Ep-Xlv"/>
                                 </constraints>
                             </imageView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y5s-h4-1ce">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="y5s-h4-1ce">
                                 <rect key="frame" x="940" y="303" width="51" height="31"/>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" red="0.90216243267059326" green="0.94440388679504395" blue="0.99216526746749878" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="r9F-rP-Kpk" firstAttribute="leading" secondItem="9Og-5i-hoD" secondAttribute="leading" constant="150" id="3hu-nl-MAl"/>
-                            <constraint firstItem="yc5-YA-5Fa" firstAttribute="leading" secondItem="r9F-rP-Kpk" secondAttribute="trailing" constant="111" id="AoV-Lf-paj"/>
                             <constraint firstItem="2Tq-Wg-DGX" firstAttribute="top" secondItem="1oT-96-kbF" secondAttribute="top" constant="40" id="DRv-uw-INA"/>
                             <constraint firstItem="bc4-xM-c01" firstAttribute="centerX" secondItem="1oT-96-kbF" secondAttribute="centerX" id="QCf-Sq-6b7"/>
                             <constraint firstItem="9Og-5i-hoD" firstAttribute="bottom" secondItem="bc4-xM-c01" secondAttribute="bottom" constant="20" id="Rmg-zd-re5"/>
+                            <constraint firstItem="yc5-YA-5Fa" firstAttribute="leading" secondItem="r9F-rP-Kpk" secondAttribute="trailing" constant="111" id="WOJ-S1-AhS"/>
                             <constraint firstItem="r9F-rP-Kpk" firstAttribute="top" secondItem="9Og-5i-hoD" secondAttribute="top" constant="50" id="cRt-Z9-qUH"/>
                             <constraint firstItem="y5s-h4-1ce" firstAttribute="leading" secondItem="DJw-yo-xh2" secondAttribute="trailing" constant="250" id="csE-nG-r0H"/>
                             <constraint firstItem="yc5-YA-5Fa" firstAttribute="top" secondItem="9Og-5i-hoD" secondAttribute="top" constant="50" id="eGQ-dD-Pfz"/>
@@ -1677,6 +1677,6 @@
         <image name="Zinc" width="600" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="32K-DG-Wi6"/>
+        <segue reference="lgc-jb-9H8"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -155,7 +155,7 @@ class Controller1stGame: UIViewController {
     
     func createLevel(cardPairsCount count: Int) {
         
-        self.iconSwitch.isEnabled = true
+//        self.iconSwitch.isEnabled = true
         
         var alreadyInThere = [Int]()
         
