@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Chalkduster.ttf">
+            <string>Chalkduster</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Controller 1st Game-->
         <scene sceneID="JRm-r9-f9s">
@@ -802,6 +807,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <gestureRecognizers/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DJw-yo-xh2">
                                 <rect key="frame" x="270" y="288" width="420" height="60"/>
@@ -1014,31 +1020,35 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Legenda2" translatesAutoresizingMaskIntoConstraints="NO" id="yc5-YA-5Fa">
-                                <rect key="frame" x="801" y="70" width="280" height="160"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z39-aY-Uah">
+                                <rect key="frame" x="795" y="70" width="335" height="210"/>
+                                <color key="backgroundColor" red="0.17712960025380708" green="0.17712960025380708" blue="0.17712960025380708" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="YoO-QJ-fh0"/>
-                                    <constraint firstAttribute="width" constant="280" id="cJt-Ep-Xlv"/>
+                                    <constraint firstAttribute="height" constant="210" id="8WU-hT-x1g"/>
+                                    <constraint firstAttribute="width" constant="335" id="I2N-7y-dDL"/>
                                 </constraints>
-                            </imageView>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="y5s-h4-1ce">
-                                <rect key="frame" x="940" y="303" width="51" height="31"/>
+                                <rect key="frame" x="795" y="317" width="51" height="31"/>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" red="0.90216243267059326" green="0.94440388679504395" blue="0.99216526746749878" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="r9F-rP-Kpk" firstAttribute="leading" secondItem="9Og-5i-hoD" secondAttribute="leading" constant="150" id="3hu-nl-MAl"/>
+                            <constraint firstItem="Z39-aY-Uah" firstAttribute="leading" secondItem="r9F-rP-Kpk" secondAttribute="trailing" constant="105" id="95l-Ub-ukF"/>
                             <constraint firstItem="2Tq-Wg-DGX" firstAttribute="top" secondItem="1oT-96-kbF" secondAttribute="top" constant="40" id="DRv-uw-INA"/>
                             <constraint firstItem="bc4-xM-c01" firstAttribute="centerX" secondItem="1oT-96-kbF" secondAttribute="centerX" id="QCf-Sq-6b7"/>
                             <constraint firstItem="9Og-5i-hoD" firstAttribute="bottom" secondItem="bc4-xM-c01" secondAttribute="bottom" constant="20" id="Rmg-zd-re5"/>
-                            <constraint firstItem="yc5-YA-5Fa" firstAttribute="leading" secondItem="r9F-rP-Kpk" secondAttribute="trailing" constant="111" id="WOJ-S1-AhS"/>
+                            <constraint firstItem="y5s-h4-1ce" firstAttribute="top" secondItem="Z39-aY-Uah" secondAttribute="bottom" constant="37" id="TRb-M6-fDV"/>
+                            <constraint firstItem="y5s-h4-1ce" firstAttribute="leading" secondItem="DJw-yo-xh2" secondAttribute="trailing" constant="105" id="bhr-x7-etL"/>
                             <constraint firstItem="r9F-rP-Kpk" firstAttribute="top" secondItem="9Og-5i-hoD" secondAttribute="top" constant="50" id="cRt-Z9-qUH"/>
-                            <constraint firstItem="y5s-h4-1ce" firstAttribute="leading" secondItem="DJw-yo-xh2" secondAttribute="trailing" constant="250" id="csE-nG-r0H"/>
-                            <constraint firstItem="yc5-YA-5Fa" firstAttribute="top" secondItem="9Og-5i-hoD" secondAttribute="top" constant="50" id="eGQ-dD-Pfz"/>
                             <constraint firstItem="DJw-yo-xh2" firstAttribute="leading" secondItem="9Og-5i-hoD" secondAttribute="leading" constant="270" id="m4e-cM-8I7"/>
                             <constraint firstItem="DJw-yo-xh2" firstAttribute="top" secondItem="r9F-rP-Kpk" secondAttribute="bottom" constant="8" id="mcv-kx-b19"/>
                             <constraint firstItem="9Og-5i-hoD" firstAttribute="trailing" secondItem="2Tq-Wg-DGX" secondAttribute="trailing" constant="70" id="rmN-J5-gFX"/>
-                            <constraint firstItem="y5s-h4-1ce" firstAttribute="top" secondItem="yc5-YA-5Fa" secondAttribute="bottom" constant="73" id="ytt-De-5EY"/>
+                            <constraint firstItem="Z39-aY-Uah" firstAttribute="top" secondItem="9Og-5i-hoD" secondAttribute="top" constant="50" id="zHg-Wv-FRm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Og-5i-hoD"/>
                     </view>
@@ -1046,6 +1056,7 @@
                         <outlet property="collectionView" destination="bc4-xM-c01" id="dHH-hx-d2r"/>
                         <outlet property="heightCollectionView" destination="w87-Yo-f3k" id="Axg-LW-6AT"/>
                         <outlet property="iconSwitch" destination="y5s-h4-1ce" id="dkx-R4-ouj"/>
+                        <outlet property="infoLabel" destination="Z39-aY-Uah" id="OfT-hD-wng"/>
                         <outlet property="lathanidesActinidesStackView" destination="DJw-yo-xh2" id="aqR-E9-LN8"/>
                         <outlet property="tableStackView" destination="r9F-rP-Kpk" id="9at-fb-Oyt"/>
                         <outlet property="widthCollectionView" destination="ce9-jb-jFg" id="xaP-dO-5jD"/>
@@ -1661,7 +1672,6 @@
         <image name="Grey" width="66" height="66"/>
         <image name="Hydrogen" width="600" height="600"/>
         <image name="Iodine" width="600" height="600"/>
-        <image name="Legenda2" width="1148" height="695"/>
         <image name="Magnesium" width="600" height="600"/>
         <image name="Nitrogen" width="600" height="600"/>
         <image name="Oxygen" width="600" height="600"/>

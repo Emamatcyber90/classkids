@@ -15,9 +15,12 @@ class Controller1stGame: UIViewController {
     var elementsToGo = 0
     
     static var elementNameForNumber: [Int: String]!
+    static var atomicWeightForNumber: [Int: String]!
+    static var discoveryYearForNumber: [Int: String]!
     
     let backImage = UIImage(named: "Tile_Back")
     
+    @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var iconSwitch: UISwitch!
     @IBOutlet weak var lathanidesActinidesStackView: UIStackView!
     @IBOutlet weak var tableStackView: UIStackView!
@@ -52,11 +55,18 @@ class Controller1stGame: UIViewController {
         }
     }
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        infoLabel.layer.borderWidth = 8
+        infoLabel.layer.borderColor = UIColor.brown.cgColor
+        
         collectionView.backgroundColor = .clear
         Controller1stGame.elementNameForNumber = setupElementNameForNumber()
+        Controller1stGame.atomicWeightForNumber = setupAtomicWeightForNumber()
+        Controller1stGame.discoveryYearForNumber = setupDiscoveryYearForNumber()
         
 //        setupOriginalTable()
 //        setupAdditionalTable()
@@ -72,6 +82,7 @@ class Controller1stGame: UIViewController {
         
     }
     
+    // Take the element name from the atomic number
     func setupElementNameForNumber() -> [Int: String] {
         
         var elementNameForNumber = [Int: String]()
@@ -92,7 +103,51 @@ class Controller1stGame: UIViewController {
         return elementNameForNumber
     }
     
+    // Take the element atomic weight from the atomic number
+    func setupAtomicWeightForNumber() -> [Int: String] {
+        
+        var atomicWeightForNumber = [Int: String]()
+        
+        if let path = Bundle.main.path(forResource: "Elements", ofType: "plist") {
+            let elements = NSArray(contentsOfFile: path)
+            
+            for element in elements! {
+                let element = element as! [String: Any]
+                let atomicWeight = element["atomicWeight"] as! String
+                let number = element["atomicNumber"] as! Int
+                atomicWeightForNumber[number] = atomicWeight
+            }
+        } else {
+            print("Elements.plist file not found")
+        }
+        
+        return atomicWeightForNumber
+    }
+    
+    // Take the element discovery year from the atomic number
+    func setupDiscoveryYearForNumber() -> [Int: String] {
+        
+        var discoveryYearForNumber = [Int: String]()
+        
+        if let path = Bundle.main.path(forResource: "Elements", ofType: "plist") {
+            let elements = NSArray(contentsOfFile: path)
+            
+            for element in elements! {
+                let element = element as! [String: Any]
+                let discoveryYear = element["discoveryYear"] as! String
+                let number = element["atomicNumber"] as! Int
+                discoveryYearForNumber[number] = discoveryYear
+            }
+        } else {
+            print("Elements.plist file not found")
+        }
+        
+        return discoveryYearForNumber
+    }
+    
+    
     func setupOriginalTable() {
+        
         for view in tableStackView.arrangedSubviews {
             if let subStackView = view as? UIStackView {
                 for view in subStackView.arrangedSubviews {
@@ -111,6 +166,7 @@ class Controller1stGame: UIViewController {
                                     print("Invalid tag")
                                     return
                                 }
+                                
                                 imageView.image = UIImage(named: name)
                                 //                                imageView.isHidden = true
                             } else {
@@ -132,6 +188,7 @@ class Controller1stGame: UIViewController {
                             print("Invalid tag")
                             return
                         }
+                                                
                         imageView.image = UIImage(named: name)
                     } else {
                         for view in view.subviews {
@@ -229,11 +286,12 @@ class Controller1stGame: UIViewController {
                         if let imageView = self.tableStackView.viewWithTag(currentCard.element) {
                             elementImageView = imageView as! UIImageView
                             elementImageView.image = UIImage(named: Controller1stGame.elementNameForNumber[elementImageView.tag]! + imagePath)
-                            
+                            self.updateInfoLabel(view: elementImageView)
+                    
                         } else {
                             elementImageView = self.lathanidesActinidesStackView.viewWithTag(currentCard.element)! as! UIImageView
                             elementImageView.image = UIImage(named: Controller1stGame.elementNameForNumber[elementImageView.tag]! + imagePath)
-
+                            self.updateInfoLabel(view: elementImageView)
                         }
                         
                         elementImageView.layer.isHidden = false
@@ -244,6 +302,7 @@ class Controller1stGame: UIViewController {
                         UIView.animate(withDuration: 1, delay: 2, options: [], animations: {
                             elementImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
                         }, completion: nil)
+                        
                         self.isFlipped = false
                         self.elementsToGo -= 1
                         print("Elements to go: " + String(self.elementsToGo))
@@ -307,8 +366,25 @@ class Controller1stGame: UIViewController {
         }, completion: completion)
     }
     
+    // Show information of the elements you match
+    func updateInfoLabel(view: UIImageView) {
+        
+        infoLabel.text?.removeAll()
+        infoLabel.text?.append("Name: \(Controller1stGame.elementNameForNumber[view.tag]!)")
+        infoLabel.text?.append("\nAtomic Number: \(view.tag)")
+        infoLabel.text?.append("\nAtomic Weight: \(Controller1stGame.atomicWeightForNumber[view.tag]!)")
+        infoLabel.text?.append("\nDiscovery Year: \(Controller1stGame.discoveryYearForNumber[view.tag]!)")
+        
+        // fading animation when labels update
+        let transition = CATransition()
+        transition.type = kCATransitionFade
+        transition.duration = 0.4
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        infoLabel.layer.add(transition, forKey: nil)
+    }
     
-    // Sounds functions
+    
+    // Sounds functions -- Uncomment when we find the sounds
 //    func matchingSound() {
 //        let sound = Bundle.main.url(forResource: <#T##String?#>, withExtension: <#T##String?#>)
 //        do {
