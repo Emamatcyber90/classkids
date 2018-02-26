@@ -1534,6 +1534,22 @@
                                     <constraint firstAttribute="width" constant="157" id="c0R-cl-o7a"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kat-Mb-1Ac">
+                                <rect key="frame" x="983" y="708" width="114" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Need a hint?"/>
+                                <connections>
+                                    <action selector="tapHint:" destination="g16-BF-UlD" eventType="touchUpInside" id="P9f-Gt-2Y5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shuffled Formula: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKc-j2-HIU">
+                                <rect key="frame" x="983" y="638" width="348" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tab1" translatesAutoresizingMaskIntoConstraints="NO" id="hqT-Jj-YzC">
                                 <rect key="frame" x="631" y="486" width="105" height="72"/>
                                 <gestureRecognizers/>
@@ -1580,6 +1596,8 @@
                     </view>
                     <connections>
                         <outlet property="failingAnim" destination="42j-T0-wr6" id="iEj-YN-SvV"/>
+                        <outlet property="hintButton" destination="Kat-Mb-1Ac" id="jva-Na-I2c"/>
+                        <outlet property="hintLabel" destination="EKc-j2-HIU" id="Som-Q8-L3q"/>
                         <outlet property="match" destination="Erm-Rn-W43" id="kBq-Oh-p5a"/>
                         <outlet property="matchSucces" destination="O18-XT-RcU" id="8UD-UY-PA6"/>
                         <outlet property="outputLabel" destination="Kqp-47-yN4" id="MUN-DT-SM2"/>
@@ -1687,6 +1705,6 @@
         <image name="Zinc" width="600" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lgc-jb-9H8"/>
+        <segue reference="32K-DG-Wi6"/>
     </inferredMetricsTieBreakers>
 </document>

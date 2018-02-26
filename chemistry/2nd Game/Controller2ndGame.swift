@@ -12,6 +12,12 @@ import AVFoundation
 class Controller2ndGame: UIViewController {
     var player: AVAudioPlayer?
     
+    var hintTapped = false
+    var matchesCounter: Int = 0
+    var failsCounter: Int = 0
+    var solution: String = ""
+    @IBOutlet weak var hintButton: UIButton!
+    @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var failingAnim: UIImageView!
     @IBOutlet weak var matchSucces: UIImageView!
     @IBOutlet weak var periodicTable: UIImageView!
@@ -154,21 +160,43 @@ class Controller2ndGame: UIViewController {
             matchSucces.animationDuration = 1
             matchSucces.animationRepeatCount = 1
             matchSucces.startAnimating()
+            matchesCounter += 1
+            print(matchesCounter)
             nextLevel()
         } else {
             explosionSound()
             failingAnim.animationRepeatCount = 1
             failingAnim.startAnimating()
+            failsCounter += 1
+            print("Fail number \(failsCounter)")
+            if failsCounter == 3 {
+                hintButton.isHidden = false
+                let transition = CATransition()
+                transition.type = kCATransitionFade
+                transition.duration = 0.3
+                transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+                hintButton.layer.add(transition, forKey: nil)
+            }
         }
-        
     }
     
     // display a new target and clear the user's inputs
     func nextLevel() {
+        failsCounter = 0
+        matchesCounter = 0
+        hintLabel.isHidden = true
+        hintButton.isHidden = true
+        
+        hintButton.isUserInteractionEnabled = true
+        hintButton.alpha = 1
+        
         let elementCount = UInt32(Controller2ndGame.formulaDictionary.count)
         let randomIndex = Int(arc4random_uniform(elementCount))
         currentElementName = Array(Controller2ndGame.formulaDictionary.keys)[randomIndex]
+        solution = Array(Controller2ndGame.formulaDictionary.values)[randomIndex]
+        print("Solution: \(solution)")
     }
+    
     
     func bubbleSound() {
         let sound = Bundle.main.url(forResource: "Bubbles", withExtension: "mp3")
@@ -182,6 +210,7 @@ class Controller2ndGame: UIViewController {
         }
     }
     
+    
     func explosionSound() {
         let sound = Bundle.main.url(forResource: "explosion", withExtension: "mp3")
         do {
@@ -194,9 +223,37 @@ class Controller2ndGame: UIViewController {
         }
     }
     
+    @IBAction func tapHint(_ sender: UIButton) {
+        hintTapped = true
+        hintLabel.text = "Shuffled Formula: "
+        var solutionArray = Array(solution)
+        solutionArray.shuffleSolution()
+        let shuffledSolution = String(solutionArray)
+        hintLabel.isHidden = false
+        hintLabel.text?.append(shuffledSolution)
+        
+        if hintTapped {
+            hintButton.isUserInteractionEnabled = false
+            hintButton.alpha = 0.5
+        } else {
+            hintButton.isUserInteractionEnabled = true
+            hintButton.alpha = 1
+        }
+        
+    }
+    
+    
     override func viewDidLoad() {
-        print(arr2.count)
-         var images1: [UIImage] = []
+        nextLevel()
+        
+        hintLabel.backgroundColor = UIColor.white
+        hintLabel.layer.borderWidth = 1.5
+        hintLabel.layer.borderColor = UIColor.black.cgColor
+        hintLabel.layer.masksToBounds = true
+        hintLabel.layer.cornerRadius = 8
+        
+        
+        var images1: [UIImage] = []
         var images2: [UIImage] = []
         
          for i in 0..<arr.count {
@@ -208,15 +265,23 @@ class Controller2ndGame: UIViewController {
             images2.append(UIImage(named: arr2[i])!)
         }
         matchSucces.animationImages = images2
-
-            
-        nextLevel()
+        
         outputLabel.layer.borderWidth = 3
         outputLabel.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         super.viewDidLoad()
         periodicTable.isHidden = true
     }
     
+}
+
+extension Array {
+    mutating func shuffleSolution() {
+        for i in 0..<(count - 1) {
+            let j = Int(arc4random_uniform(UInt32(count - i))) + i
+            guard i != j else { continue}
+            self.swapAt(i, j)
+        }
+    }
 }
 
 

@@ -39,6 +39,8 @@ class Controller1stGame: UIViewController {
         }
     }
     
+    
+    
     var level: [CardModel] = []
     var isFlipped = false
     var lastFlippedIndex = -1
@@ -59,6 +61,8 @@ class Controller1stGame: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         infoLabel.layer.borderWidth = 8
         infoLabel.layer.borderColor = UIColor.brown.cgColor
