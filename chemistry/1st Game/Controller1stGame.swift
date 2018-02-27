@@ -97,6 +97,7 @@ class Controller1stGame: UIViewController {
         infoLabel.layer.borderWidth = 8
         infoLabel.layer.borderColor = UIColor.brown.cgColor
         
+        
         collectionView.backgroundColor = .clear
         Controller1stGame.elementNameForNumber = setupElementNameForNumber()
         Controller1stGame.atomicWeightForNumber = setupAtomicWeightForNumber()

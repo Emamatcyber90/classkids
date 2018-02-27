@@ -23,7 +23,8 @@ class Controller2ndGame: UIViewController {
     @IBOutlet weak var failingAnim: UIImageView!
     @IBOutlet weak var matchSucces: UIImageView!
     @IBOutlet weak var periodicTable: UIImageView!
-    var touched = false
+    @IBOutlet weak var levelLabel: UILabel!
+    var touched = true
     
     var currentDictionary: [String : String] {
         switch currentLevel {
@@ -170,7 +171,13 @@ class Controller2ndGame: UIViewController {
             if matchesCounter > 2 {
                 currentLevel = 2
                 targetLabel.textColor = UIColor.blue
-                
+                levelLabel.text = "Level 2"
+                levelLabel.textColor = UIColor.blue
+                let transition = CATransition()
+                transition.type = kCATransitionFade
+                transition.duration = 0.3
+                transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+                levelLabel.layer.add(transition, forKey: nil)
             }
             nextLevel()
         } else {

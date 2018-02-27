@@ -1020,7 +1020,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z39-aY-Uah">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z39-aY-Uah">
                                 <rect key="frame" x="740" y="70" width="341.5" height="214.5"/>
                                 <color key="backgroundColor" red="0.17712960025380708" green="0.17712960025380708" blue="0.17712960025380708" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -1137,7 +1137,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3l-Kj-Nph" userLabel="Table">
-                                <rect key="frame" x="70" y="50" width="164" height="97"/>
+                                <rect key="frame" x="70" y="57" width="164" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="t3l-Kj-Nph" secondAttribute="height" multiplier="155:92" id="wAh-3N-a6e"/>
                                 </constraints>
@@ -1536,22 +1536,31 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kat-Mb-1Ac">
-                                <rect key="frame" x="983" y="709.5" width="110" height="41.5"/>
+                                <rect key="frame" x="983" y="699.5" width="136" height="51.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Kat-Mb-1Ac" secondAttribute="height" multiplier="114:43" id="VRM-n8-JbL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Need a hint?"/>
                                 <connections>
                                     <action selector="tapHint:" destination="g16-BF-UlD" eventType="touchUpInside" id="P9f-Gt-2Y5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shuffled Formula: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKc-j2-HIU">
-                                <rect key="frame" x="1058" y="651.5" width="273" height="48.5"/>
+                                <rect key="frame" x="983" y="641.5" width="273" height="48.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="EKc-j2-HIU" secondAttribute="height" multiplier="174:31" id="49x-4S-TvY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxT-Kb-vr0">
+                                <rect key="frame" x="70" y="189" width="235" height="57.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bxT-Kb-vr0" secondAttribute="height" multiplier="41:10" id="QMJ-ov-bhw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="48"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1580,13 +1589,14 @@
                         <constraints>
                             <constraint firstItem="42j-T0-wr6" firstAttribute="trailing" secondItem="rkb-lx-ZTN" secondAttribute="trailing" id="5ki-n4-5Ho"/>
                             <constraint firstItem="dd7-El-UMJ" firstAttribute="width" secondItem="PPe-S9-ME7" secondAttribute="width" multiplier="0.5" id="63O-cg-zc7"/>
-                            <constraint firstItem="t3l-Kj-Nph" firstAttribute="top" secondItem="rkb-lx-ZTN" secondAttribute="top" constant="30" id="6j3-84-qbK"/>
+                            <constraint firstItem="t3l-Kj-Nph" firstAttribute="top" secondItem="rkb-lx-ZTN" secondAttribute="top" constant="37" id="6j3-84-qbK"/>
                             <constraint firstItem="Ajl-1S-p7o" firstAttribute="centerX" secondItem="rkb-lx-ZTN" secondAttribute="centerX" id="7cg-Bv-7is"/>
                             <constraint firstItem="t3l-Kj-Nph" firstAttribute="width" secondItem="PPe-S9-ME7" secondAttribute="width" multiplier="0.12" id="FqB-v0-rzM"/>
+                            <constraint firstItem="bxT-Kb-vr0" firstAttribute="top" secondItem="t3l-Kj-Nph" secondAttribute="bottom" constant="35" id="JT4-0C-6Bz"/>
                             <constraint firstItem="Kat-Mb-1Ac" firstAttribute="top" secondItem="EKc-j2-HIU" secondAttribute="bottom" constant="9.5" id="KrJ-Rq-f1V"/>
                             <constraint firstItem="Ajl-1S-p7o" firstAttribute="width" secondItem="PPe-S9-ME7" secondAttribute="width" multiplier="0.15" id="Mq4-ey-BUf"/>
                             <constraint firstItem="dd7-El-UMJ" firstAttribute="top" secondItem="rkb-lx-ZTN" secondAttribute="top" constant="20" id="Ndl-8G-sje"/>
-                            <constraint firstItem="rkb-lx-ZTN" firstAttribute="trailing" secondItem="EKc-j2-HIU" secondAttribute="trailing" constant="35" id="PhO-hs-bex"/>
+                            <constraint firstItem="rkb-lx-ZTN" firstAttribute="trailing" secondItem="EKc-j2-HIU" secondAttribute="trailing" constant="110" id="PhO-hs-bex"/>
                             <constraint firstItem="Kat-Mb-1Ac" firstAttribute="leading" secondItem="Kqp-47-yN4" secondAttribute="trailing" constant="95" id="RVQ-Oz-WTP"/>
                             <constraint firstItem="rkb-lx-ZTN" firstAttribute="bottom" secondItem="OPi-ko-a8Y" secondAttribute="bottom" constant="28" id="SUo-6k-j1O"/>
                             <constraint firstItem="Kqp-47-yN4" firstAttribute="centerX" secondItem="PPe-S9-ME7" secondAttribute="centerX" id="TgI-rH-DRU"/>
@@ -1595,6 +1605,7 @@
                             <constraint firstItem="Kqp-47-yN4" firstAttribute="width" secondItem="Ajl-1S-p7o" secondAttribute="width" multiplier="2" id="WZa-J2-2xP"/>
                             <constraint firstItem="t3l-Kj-Nph" firstAttribute="leading" secondItem="rkb-lx-ZTN" secondAttribute="leading" constant="70" id="Wqh-dB-mKN"/>
                             <constraint firstItem="O18-XT-RcU" firstAttribute="centerX" secondItem="rkb-lx-ZTN" secondAttribute="centerX" id="Z7E-w2-6Ck"/>
+                            <constraint firstItem="bxT-Kb-vr0" firstAttribute="leading" secondItem="rkb-lx-ZTN" secondAttribute="leading" constant="70" id="bLy-dd-3ZQ"/>
                             <constraint firstItem="OPi-ko-a8Y" firstAttribute="top" secondItem="Kqp-47-yN4" secondAttribute="bottom" constant="8" id="epi-rr-gph"/>
                             <constraint firstItem="dd7-El-UMJ" firstAttribute="centerX" secondItem="rkb-lx-ZTN" secondAttribute="centerX" id="fq9-ca-aeM"/>
                             <constraint firstItem="OPi-ko-a8Y" firstAttribute="centerX" secondItem="rkb-lx-ZTN" secondAttribute="centerX" id="frW-YO-iQI"/>
@@ -1619,6 +1630,7 @@
                         <outlet property="failingAnim" destination="42j-T0-wr6" id="iEj-YN-SvV"/>
                         <outlet property="hintButton" destination="Kat-Mb-1Ac" id="jva-Na-I2c"/>
                         <outlet property="hintLabel" destination="EKc-j2-HIU" id="Som-Q8-L3q"/>
+                        <outlet property="levelLabel" destination="bxT-Kb-vr0" id="b0K-v9-3T5"/>
                         <outlet property="match" destination="Erm-Rn-W43" id="kBq-Oh-p5a"/>
                         <outlet property="matchSucces" destination="O18-XT-RcU" id="8UD-UY-PA6"/>
                         <outlet property="outputLabel" destination="Kqp-47-yN4" id="MUN-DT-SM2"/>
@@ -1726,6 +1738,6 @@
         <image name="Zinc" width="600" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lgc-jb-9H8"/>
+        <segue reference="32K-DG-Wi6"/>
     </inferredMetricsTieBreakers>
 </document>
