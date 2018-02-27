@@ -26,11 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Tq-Wg-DGX">
-                                <rect key="frame" x="1216" y="40" width="80" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="5mV-f0-Or8"/>
-                                    <constraint firstAttribute="height" constant="80" id="WJA-s7-4r9"/>
-                                </constraints>
+                                <rect key="frame" x="1231" y="40" width="65" height="64"/>
                                 <state key="normal" image="Exit"/>
                                 <connections>
                                     <segue destination="xmM-bz-ImA" kind="show" id="lgc-jb-9H8"/>
@@ -810,6 +806,8 @@
                                     </stackView>
                                 </subviews>
                                 <gestureRecognizers/>
+                                <variation key="heightClass=compact-widthClass=compact" axis="horizontal"/>
+                                <variation key="heightClass=regular-widthClass=compact" axis="horizontal"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DJw-yo-xh2">
                                 <rect key="frame" x="270" y="288" width="420" height="60"/>
@@ -1047,9 +1045,12 @@
                             <constraint firstItem="Z39-aY-Uah" firstAttribute="leading" secondItem="r9F-rP-Kpk" secondAttribute="trailing" constant="50" id="95l-Ub-ukF"/>
                             <constraint firstItem="2Tq-Wg-DGX" firstAttribute="top" secondItem="1oT-96-kbF" secondAttribute="top" constant="40" id="DRv-uw-INA"/>
                             <constraint firstItem="y5s-h4-1ce" firstAttribute="top" secondItem="Z39-aY-Uah" secondAttribute="bottom" constant="32.5" id="FLm-aH-Qgs"/>
+                            <constraint firstItem="2Tq-Wg-DGX" firstAttribute="top" secondItem="9Og-5i-hoD" secondAttribute="top" constant="20" id="Fui-oO-lze"/>
                             <constraint firstItem="bc4-xM-c01" firstAttribute="centerX" secondItem="1oT-96-kbF" secondAttribute="centerX" id="QCf-Sq-6b7"/>
                             <constraint firstItem="9Og-5i-hoD" firstAttribute="bottom" secondItem="bc4-xM-c01" secondAttribute="bottom" constant="20" id="Rmg-zd-re5"/>
+                            <constraint firstItem="9Og-5i-hoD" firstAttribute="trailing" secondItem="2Tq-Wg-DGX" secondAttribute="trailing" constant="70" id="TUu-Vt-1bA"/>
                             <constraint firstItem="r9F-rP-Kpk" firstAttribute="top" secondItem="9Og-5i-hoD" secondAttribute="top" constant="50" id="cRt-Z9-qUH"/>
+                            <constraint firstItem="2Tq-Wg-DGX" firstAttribute="width" secondItem="1oT-96-kbF" secondAttribute="height" multiplier="65:1024" id="d1Y-mX-CeL"/>
                             <constraint firstItem="DJw-yo-xh2" firstAttribute="leading" secondItem="9Og-5i-hoD" secondAttribute="leading" constant="270" id="m4e-cM-8I7"/>
                             <constraint firstItem="DJw-yo-xh2" firstAttribute="top" secondItem="r9F-rP-Kpk" secondAttribute="bottom" constant="8" id="mcv-kx-b19"/>
                             <constraint firstItem="9Og-5i-hoD" firstAttribute="trailing" secondItem="2Tq-Wg-DGX" secondAttribute="trailing" constant="70" id="rmN-J5-gFX"/>
@@ -1057,6 +1058,11 @@
                             <constraint firstItem="Z39-aY-Uah" firstAttribute="top" secondItem="9Og-5i-hoD" secondAttribute="top" constant="50" id="zHg-Wv-FRm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Og-5i-hoD"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="y5s-h4-1ce"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="bc4-xM-c01" id="dHH-hx-d2r"/>
@@ -1605,11 +1611,6 @@
                             <constraint firstItem="hqT-Jj-YzC" firstAttribute="centerY" secondItem="rkb-lx-ZTN" secondAttribute="centerY" id="y9u-Jl-Vu7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rkb-lx-ZTN"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="42j-T0-wr6"/>
-                            </mask>
-                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="T3K-2P-Xwg" appends="YES" id="IVR-f8-oBs"/>
                         </connections>
