@@ -59,37 +59,6 @@ class Controller1stGame: UIViewController {
         }
     }
     
-
-//    func setupTableSize() {
-//
-//        for view in tableStackView.arrangedSubviews {
-//            if let subStackView = view as? UIStackView {
-//                for view in subStackView.arrangedSubviews {
-//                    if let imageView = view as? UIImageView {
-//
-//                        var imageHeight = imageView.bounds.height
-//                        var imageWidht = imageView.bounds.width
-//
-//                        switch iPadModel {
-//                        case "iPad":
-//                            imageHeight = 30
-//                            imageWidht = 30
-//                        case "iPad Pro 10.5":
-//                            imageHeight = 1
-//                            imageWidht = 1
-//                        default:
-//                            imageHeight = 40
-//                            imageWidht = 40
-//                        }
-//
-//                        imageView.frame = CGRect(x: 50, y: 50, width: imageWidht, height: imageHeight)
-//                    }
-//                }
-//            }
-//        }
-//
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

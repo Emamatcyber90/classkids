@@ -1583,6 +1583,13 @@
                                     <constraint firstAttribute="width" secondItem="O18-XT-RcU" secondAttribute="height" multiplier="157:320" id="j11-1C-Bjh"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEx-nl-ejs">
+                                <rect key="frame" x="70" y="262" width="164" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.97239416837692261" green="0.99330049753189087" blue="0.90194743871688843" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
@@ -1627,6 +1634,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="elementsToGoLabel" destination="YEx-nl-ejs" id="U7H-8W-4bB"/>
                         <outlet property="failingAnim" destination="42j-T0-wr6" id="iEj-YN-SvV"/>
                         <outlet property="hintButton" destination="Kat-Mb-1Ac" id="jva-Na-I2c"/>
                         <outlet property="hintLabel" destination="EKc-j2-HIU" id="Som-Q8-L3q"/>
