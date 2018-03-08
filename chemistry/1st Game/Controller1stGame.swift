@@ -269,7 +269,7 @@ class Controller1stGame: UIViewController {
             
             if lastFlippedIndex != index.row {
                 
-                // IMPORTANT: ENABLE INTERACTION AGAIN
+                // IMPORTANT: ENABLE INTERACTION AGAIN LATER FOR EVERY SCENARIO
                 self.view.isUserInteractionEnabled = false
                 
                 // Cards for comparison
@@ -316,7 +316,7 @@ class Controller1stGame: UIViewController {
                         if self.elementsToGo <= 0 {
 //                            self.shuffleSound()
                             self.createLevel(cardPairsCount: 9)
-                            for i in 0...15 {
+                            for i in 0...17 {
                                 self.collectionView.cellForItem(at: IndexPath(row: i, section: 0))?.isUserInteractionEnabled = true
                             }
                             self.collectionView.reloadData()
