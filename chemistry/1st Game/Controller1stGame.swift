@@ -44,6 +44,7 @@ class Controller1stGame: UIViewController {
     
     
     var level: [CardModel] = []
+    var alreadyInThere = [Int]()
     var isFlipped = false
     var lastFlippedIndex = -1
     var lastFlippedCell: CardCell?
@@ -218,9 +219,9 @@ class Controller1stGame: UIViewController {
     
     func createLevel(cardPairsCount count: Int) {
         
-//        self.iconSwitch.isEnabled = true
+        level.removeAll()
         
-        var alreadyInThere = [Int]()
+//        self.iconSwitch.isEnabled = true
         
         var i = 1
         while i <= count {
@@ -268,15 +269,16 @@ class Controller1stGame: UIViewController {
             
             if lastFlippedIndex != index.row {
                 
+                // IMPORTANT: ENABLE INTERACTION AGAIN
+                self.view.isUserInteractionEnabled = false
+                
+                // Cards for comparison
                 let currentCard = level[index.row]
                 let lastFlippedCard = level[lastFlippedIndex]
-                
-                self.view.isUserInteractionEnabled = false
                 
                 UIView.transition(with: cell, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
                     cell.cardImage.image = currentCard.image
                 }, completion: {(_) in
-                    
                     
                     if currentCard.element == lastFlippedCard.element {
 //                        matchingSound()
@@ -311,7 +313,7 @@ class Controller1stGame: UIViewController {
                         self.elementsToGo -= 1
                         print("Elements to go: " + String(self.elementsToGo))
                         
-                        if self.elementsToGo <= 0 {
+                        if self.elementsToGo >= 0 {
 //                            self.shuffleSound()
                             self.createLevel(cardPairsCount: 9)
                             for i in 0...15 {
@@ -319,6 +321,8 @@ class Controller1stGame: UIViewController {
                             }
                             self.collectionView.reloadData()
                             self.collectionView.reloadInputViews()
+                            
+                            // ENABLED AGAIN
                             self.view.isUserInteractionEnabled = true
                             cell.isUserInteractionEnabled = true
                             self.lastFlippedCell?.isUserInteractionEnabled = true
@@ -346,6 +350,8 @@ class Controller1stGame: UIViewController {
                             self.lastFlippedCell!.cardImage.image = self.backImage
                         })
                     }
+                    
+                    // ENABLED AGAIN
                     self.view.isUserInteractionEnabled = true
                 })
                 
