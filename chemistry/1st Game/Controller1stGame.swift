@@ -313,7 +313,7 @@ class Controller1stGame: UIViewController {
                         self.elementsToGo -= 1
                         print("Elements to go: " + String(self.elementsToGo))
                         
-                        if self.elementsToGo >= 0 {
+                        if self.elementsToGo <= 0 {
 //                            self.shuffleSound()
                             self.createLevel(cardPairsCount: 9)
                             for i in 0...15 {
